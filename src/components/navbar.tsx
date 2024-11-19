@@ -2,10 +2,19 @@
 import React, { useEffect } from 'react';
 
 export default function Navbar() {
+    
+
     useEffect(() => {
-        if (typeof document !== 'undefined')
-            require('bootstrap/dist/js/bootstrap.bundle.min.js');
-    }, []);
+        if (typeof document !== 'undefined') {
+          import('bootstrap/dist/js/bootstrap.bundle.min.js')
+            .then(() => {
+              console.log('Bootstrap loaded');
+            })
+            .catch((err) => {
+              console.error('Failed to load Bootstrap:', err);
+            });
+        }
+      }, []);
 
     return (
         <nav className='navbar navbar-expand-md fixed-top on-appear-1'>
@@ -43,27 +52,27 @@ export default function Navbar() {
 
                     <div className='offcanvas-body d-md-flex justify-content-end'>
                         <ul className='navbar-nav gap-3'>
-                            <li className='nav-item'>
+                            <li className='nav-item' data-bs-dismiss='offcanvas'>
                                 <a href='#presentation' className='nav-link'>
                                     About Me
                                 </a>
                             </li>
-                            <li className='nav-item'>
+                            <li className='nav-item' data-bs-dismiss='offcanvas'>
                                 <a href='#experience' className='nav-link'>
                                     Experience
                                 </a>
                             </li>
-                            <li className='nav-item'>
+                            <li className='nav-item' data-bs-dismiss='offcanvas'>
+                                <a href='#projects' className='nav-link'>
+                                    Projects
+                                </a>
+                            </li>
+                            <li className='nav-item' data-bs-dismiss='offcanvas'>
                                 <a href='#skills' className='nav-link'>
                                     Skills
                                 </a>
                             </li>
-                            <li className='nav-item'>
-                                <a href='#personal-projects' className='nav-link'>
-                                    Personal Projects
-                                </a>
-                            </li>
-                            <li className='nav-item'>
+                            <li className='nav-item' data-bs-dismiss='offcanvas'>
                                 <a href='#contact' className='nav-link'>
                                     Contact
                                 </a>

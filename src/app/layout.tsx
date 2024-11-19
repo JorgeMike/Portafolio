@@ -5,11 +5,11 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 
 import '@/styles/css/global.css';
 import '@/styles/css/spheres.css';
-import '@/styles/css/glass.css';
 
 import '@/styles/sass/custom.scss';
 
 import Navbar from '@/components/navbar';
+import ThemeToggle from '@/components/theme-toggle';
 
 const roboto = Montserrat({
     weight: ['400', '700'],
@@ -32,14 +32,8 @@ export default function RootLayout({
         <html lang='en' data-bs-theme='dark'>
             <body className={roboto.className}>
                 <Navbar />
-                <div className='spheres'>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
                 {children}
+                <ThemeToggle />
             </body>
         </html>
     );

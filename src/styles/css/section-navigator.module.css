@@ -20,7 +20,12 @@
     z-index: 999;
 }
 
-.button:hover + .label {
+.button:hover + .label.up {
     transform: translateY(-50px); /* Mueve el label hacia arriba */
+    opacity: 1;
+}
+
+.button:hover + .label.down {
+    transform: translateY(60px); /* Mueve el label hacia arriba */
     opacity: 1;
 }

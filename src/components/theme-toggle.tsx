@@ -7,9 +7,6 @@ export default function ThemeToggle() {
     useEffect(() => {
         // Get the theme from localStorage, default to 'light' if none exists
         const theme = localStorage.getItem("theme") || "light";
-
-        // Apply the theme to the document
-        document.documentElement.setAttribute("data-bs-theme", theme);
         setDarkMode(theme as "light" | "dark");
     }, []);
 

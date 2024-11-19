@@ -2,12 +2,14 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    position: relative;
+    transition: background-color 0.5s;
 }
 
-body main {
-    height: 100vh;
+section {
+    position: relative;
+    min-height: 100vh;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
