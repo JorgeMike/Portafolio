@@ -1,0 +1,74 @@
+body .spheres {
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.spheres span {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(50px);
+    animation: float 20s infinite ease-in-out, scaleIn 1s;
+}
+
+.spheres span:nth-child(1) {
+    background: linear-gradient(90deg, #0061ff, #60efff);
+    width: 180px;
+    height: 180px;
+    top: 10%;
+    left: 15%;
+    animation-delay: 0.5s 0s;
+}
+
+.spheres span:nth-child(2) {
+    background: linear-gradient(100deg, #40c9ff, #e81cff);
+    width: 100px;
+    height: 100px;
+    top: 25%;
+    left: 60%;
+    animation-delay: 1s 0s;
+}
+
+.spheres span:nth-child(3) {
+    background: linear-gradient(100deg, #82f4b1, #30c67c);
+    width: 160px;
+    height: 160px;
+    top: 5%;
+    left: 80%;
+    animation-delay: 1.5s 0s;
+}
+
+.spheres span:nth-child(4) {
+    background: linear-gradient(100deg, #f89999, #f6c0ba);
+    width: 190px;
+    height: 190px;
+    top: 65%;
+    left: 20%;
+    animation-delay: 2s 0s;
+}
+
+.spheres span:nth-child(5) {
+    background: linear-gradient(100deg, #0e0725, #5c03bc, #e536ab, #f4e5f0);
+    width: 120px;
+    height: 120px;
+    top: 70%;
+    left: 70%;
+    animation-delay: 2.5s 0s;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) translateX(0);
+    }
+    25% {
+        transform: translateY(-30px) translateX(-30px);
+    }
+    50% {
+        transform: translateY(-60px) translateX(80px);
+    }
+    75% {
+        transform: translateY(5px) translateX(-10px);
+    }
+}

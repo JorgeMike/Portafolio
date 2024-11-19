@@ -1,0 +1,42 @@
+@import 'node_modules/bootstrap/scss/functions';
+
+$body-bg-dark: #1a1a1a;
+$spacer: 1.25rem;
+/* Aqui se pueden modificar las variables de bootstrap sin mapearlas */
+
+@import 'node_modules/bootstrap/scss/variables';
+
+.on-appear-1 {
+    animation: appearDown 1s;
+}
+
+.on-appear-2 {
+    animation: appearDown 1.2s;
+}
+
+.on-appear-3 {
+    animation: appearDown 1.4s;
+}
+
+@keyframes appearDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    50% {
+        opacity: 0.5;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Aqui se pueden agregar nuevo colores y mapearlos */
+
+@import 'node_modules/bootstrap/scss/bootstrap';
+
+.cursor-pointer {
+    cursor: pointer;
+}

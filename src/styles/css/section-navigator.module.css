@@ -1,0 +1,26 @@
+.container {
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+}
+
+.label {
+    opacity: 0;
+    position: absolute;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    z-index: 1;
+}
+
+.button {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.button:hover + .label {
+    transform: translateY(-50px); /* Mueve el label hacia arriba */
+    opacity: 1;
+}
