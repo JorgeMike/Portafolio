@@ -12,7 +12,7 @@ import Navbar from '@/components/navbar';
 import ThemeToggle from '@/components/theme-toggle';
 
 const roboto = Montserrat({
-    weight: ['400', '700'],
+    weight: ['400', '500', '600', '700'],
     subsets: ['latin'],
     display: 'swap',
 });

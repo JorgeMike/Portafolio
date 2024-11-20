@@ -14,7 +14,7 @@ export default function Presentation() {
                     <div className='col-md-5 position-relative'>
                         <div className='d-flex justify-content-center'>
                             <img
-                                src='https://placehold.co/400x500/000000/FFF'
+                                src='https://placehold.co/400x500/383838/FFF'
                                 alt='imagen placeholder'
                                 className='img-fluid rounded-4'
                             />
