@@ -40,7 +40,7 @@ export default function Skills() {
                         <div key={index} className="col-4">
                             <div className="card">
                                 <div className="card-body text-center">
-                                    <Image src={skill.icon} alt={skill.name} width={100} />
+                                    <Image className='img-fluid' src={skill.icon} alt={skill.name} width={100} />
                                 </div>
                             </div>
                         </div>
