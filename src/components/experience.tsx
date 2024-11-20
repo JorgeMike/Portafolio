@@ -8,7 +8,7 @@ export default function Experience() {
     return (
         <section
             id='experience'
-            className='on-appear-2 py-5'
+            className='py-5'
         >
             <Spheres number={2} />
             <div className='container'>
