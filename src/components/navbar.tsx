@@ -19,7 +19,7 @@ export default function Navbar() {
                     data-bs-target='#offcanvasExample'
                     aria-controls='offcanvasExample'
                 >
-                    <i className='bi bi-list'></i>
+                    <i className='bi bi-three-dots'></i>
                 </button>
                 <div
                     className='offcanvas offcanvas-end'

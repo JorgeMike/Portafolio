@@ -47,7 +47,7 @@ export default function Project({
             <div className='card'>
                 <div className='card-body'>
                     <h3 className='fs-1 fw-semibold'>{title}</h3>
-                    <p className='text-muted fw-semibold'>{description}</p>
+                    <p className='text-muted fs-5'>{description}</p>
                 </div>
             </div>
         </Fade>

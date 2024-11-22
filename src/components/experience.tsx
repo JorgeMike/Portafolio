@@ -18,7 +18,7 @@ export default function Experience() {
                 <div className="row align-items-center gap-2 gap-md-0 mb-5">
                     <Fade direction="left" triggerOnce duration={2500} className="col-md-6 mb-3 mb-md-0">
                         <div className="card">
-                            <div className="card-header d-flex justify-content-between align-items-center">
+                            <div className="card-header d-flex justify-content-between align-items-center flex-wrap">
                                 <h3 className="card-title d-flex align-items-center m-0">
                                     <i className="bi bi-code-slash me-2"></i> Frontend Developer
                                 </h3>
@@ -33,7 +33,7 @@ export default function Experience() {
 
                     <Fade direction="right" triggerOnce duration={2500} className="col-md-6">
                         <div className="card">
-                            <div className="card-header d-flex justify-content-between align-items-center">
+                            <div className="card-header d-flex justify-content-between align-items-center flex-wrap">
                                 <h3 className="card-title d-flex align-items-center m-0">
                                     <i className="bi bi-code-slash me-2"></i> Freelance Developer
                                 </h3>

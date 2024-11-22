@@ -66,3 +66,11 @@ $carousel-control-opacity: 0.5;
 .text-justify {
   text-align: justify;
 }
+
+.navbar-toggler{
+  border: none;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
