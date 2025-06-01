@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "@/styles/sass/bootstrap.scss";
 import { roboto } from "./fonts";
+import BootstrapClient from "@/components/bootstrap-client";
 
 export const metadata: Metadata = {
   title: "Web Developer Portfolio",
@@ -16,7 +17,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-bs-theme="light">
-      <body className={`${roboto.className}`}>{children}</body>
+      <body className={`${roboto.className}`}>
+        <BootstrapClient />
+        {children}
+      </body>
     </html>
   );
 }

@@ -36,7 +36,7 @@ export default function Page() {
         ref={sectionRef}
         className={`container-fluid bg-white d-flex flex-column mt-4 z-1 min-vh-100 ${inter.className}`}
         style={{
-          paddingTop: "100px",
+          paddingTop: "50px",
         }}
       >
         <div className="container">

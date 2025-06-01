@@ -49,9 +49,9 @@ export default function Contacts() {
         y: 0,
       }}
       transition={{ duration: 1, delay: 1 }}
-      className="d-flex flex-column align-items-center justify-content-center mt-3 container"
+      className="d-flex flex-column align-items-center mt-3 container"
     >
-      <div className="bg-white p-2 rounded-5 d-flex flex-wrap gap-3">
+      <div className="bg-white p-2 rounded-5 d-flex justify-content-center flex-wrap gap-3">
         {contacts.map((c) => (
           <motion.a
             key={c.name}
