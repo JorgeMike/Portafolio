@@ -1,0 +1,148 @@
+body {
+  overflow-x: hidden;
+}
+
+.form-control,
+.form-select {
+  --bs-body-bg: #ffffff;
+}
+
+.w-md-auto {
+  width: 100% !important;
+  @include media-breakpoint-up(md) {
+    width: auto !important;
+  }
+}
+
+hr {
+  @extend .text-muted;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: -35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 250px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    $primary 0%,
+    lighten($success, 20%) 50%,
+    rgba($success, 0) 100%
+  );
+  filter: blur(100px);
+  z-index: -2;
+}
+
+.shadow-primary {
+  box-shadow: 0 4px 24px 0 rgba($primary, 0.25);
+}
+
+.shadow-success {
+  box-shadow: 0 4px 24px 0 rgba($success, 1);
+}
+
+.left-subtitle {
+  display: inline-block; /* Ajusta el ancho al contenido */
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: calc(100% - 3rem); /* 2rem a la derecha del texto */
+    width: 15rem; /* Longitud fija de la línea (ajústala a lo que necesites) */
+    height: 2px;
+    background: linear-gradient(to right, $primary 0%, transparent 100%);
+    transform: translate(50%, -50%);
+  }
+}
+
+.right-subtitle {
+  display: inline-block; /* Ajusta el ancho al contenido */
+  position: relative;
+  text-align: right;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: calc(100% - 3rem); /* 2rem a la izquierda del texto */
+    min-width: 15rem; /* Longitud fija de la línea */
+    height: 2px;
+    background: linear-gradient(to left, $primary 0%, transparent 100%);
+    transform: translate(-50%, -50%);
+  }
+}
+
+.irregular-border {
+  border-radius: 20% 40%;
+}
+
+/* 1) Contenedor de la línea del tiempo */
+.timeline {
+  position: relative;
+  margin-left: 1rem; /* Ajusta según la sangría que quieras */
+  padding-left: 1.5rem; /* Deja espacio para el punto y la línea */
+  list-style: none;
+}
+
+/* 2) Cada elemento de la línea */
+.timeline li {
+  position: relative;
+  padding-bottom: 1rem; /* Separación vertical entre cada paso */
+}
+
+/* El “punto” (círculo) de cada ítem */
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -1.5rem;
+  top: 0.5rem;
+  width: 0.75rem;
+  height: 0.75rem;
+  background-color: $primary;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 2px $primary;
+}
+
+/* La línea vertical que une cada punto con el siguiente */
+.timeline li::after {
+  content: "";
+  position: absolute;
+  left: calc(-1.5rem + 0.3125rem);
+  top: 1.5rem;
+  bottom: -1.25rem;
+  width: 2px;
+  background-color: lighten($secondary, 35%);
+}
+
+.timeline li:last-child::after {
+  display: none;
+}
+
+.avatar {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(
+      circle at center,
+      rgba($primary, 0.2) 0%,
+      rgba($primary, 0) 100%
+    );
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    filter: blur(50px);
+  }
+}

@@ -1,0 +1,50 @@
+@import 'bootstrap/scss/functions';
+
+// Include any default variable overrides here
+@import 'variables';
+
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/variables-dark';
+
+// Include any default map overrides here
+@import 'colors_map';
+
+@import 'bootstrap/scss/maps';
+@import 'bootstrap/scss/mixins';
+
+@import 'utils';
+@import './global.scss';
+
+@import 'bootstrap/scss/bootstrap';
+
+//Add additional custom code here
+
+@import 'extends';
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(0deg)
+    brightness(200%);
+}
+
+.btn-dorado {
+  color: #ffffff !important;
+}
+
+.preguntas {
+  @include media-breakpoint-up(md) {
+    margin-inline: 5rem;
+  }
+
+  @include media-breakpoint-up(lg) {
+    margin-inline: 14rem;
+  }
+}
+
+.tab-pane.fade {
+  transition: opacity 0.3s linear !important;
+}
+
+.placeholder-lg {
+  min-height: 2.5em;
+}

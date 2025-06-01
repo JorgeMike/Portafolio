@@ -1,0 +1,11 @@
+$azul: #003d79;
+$dorado: #d59f0f;
+$azul-light: lighten($azul, 10%);
+
+$custom-colors: (
+  'azul': $azul,
+  'dorado': $dorado,
+  'azul-light': $azul-light,
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
