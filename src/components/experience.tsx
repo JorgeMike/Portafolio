@@ -3,54 +3,47 @@ import React from "react";
 export default function Experience() {
   return (
     <section className="row mt-5">
-      {/* Título principal con indicador de años de experiencia */}
+      {/* Main title with years of experience indicator */}
       <div className="d-flex align-items-baseline">
-        <h3 className="left-subtitle fs-1 fw-bold ">My Experience</h3>{" "}
+        <h3 className="left-subtitle fs-1 fw-bold">My Experience</h3>
       </div>
 
       <h4 className="fs-2 mb-4 d-flex align-items-center gap-2">
         More than <span className="badge bg-primary">2 years</span>
       </h4>
 
-      {/* Columna: FES Acatlán */}
+      {/* Column: FES Acatlán */}
       <div className="col-lg-6 mb-4">
         <ul className="list-unstyled">
           <li>
-            <h5>FES Acatlán - UNAM</h5>
+            <h5>FES Acatlán – UNAM</h5>
             <ul className="list-unstyled ps-3 timeline">
               <li>
                 <p className="mb-0">
-                  <strong>Frontend Web Developer</strong> - January/2023 -
-                  January/2024
+                  <strong>Frontend Web Developer</strong> – January 2023 – January 2024
                 </p>
                 <p className="text-muted">
-                  Responsable del maquetado de interfaces de usuario en Figma,
-                  así como del desarrollo frontend con Next.js y React.
+                  Responsible for designing user interface mockups in Figma and 
+                  developing the frontend using Next.js and React.
                 </p>
               </li>
               <li>
                 <p className="mb-0">
-                  <strong>Full-Stack Web Developer</strong> - January/2024 -
-                  Present
+                  <strong>Full-Stack Web Developer</strong> – January 2024 – Present
                 </p>
                 <p className="text-muted">
-                  Desarrollé aplicaciones web con Next.js, Nest.js y TypeScript,
-                  aplicando buenas prácticas y metodologías ágiles para
-                  garantizar mantenibilidad y escalabilidad.
+                  Developed web applications with Next.js, Nest.js, and TypeScript, 
+                  following best practices and agile methodologies to ensure 
+                  maintainability and scalability.
                 </p>
               </li>
               <li>
                 <p className="mb-0">
-                  <strong>
-                    Instructor de Desarrollo Web (Club de Investigación y
-                    Desarrollo Web Acatlán)
-                  </strong>{" "}
-                  - 2024 - 2025
+                  <strong>Web Development Instructor (Acatlán Web Research and Development Club)</strong> – 2024 – 2025
                 </p>
                 <p className="text-muted">
-                  Impartí talleres y mentorías sobre Next.js, React y mejores
-                  prácticas de desarrollo frontend como parte de las actividades
-                  del club.
+                  Delivered workshops and mentorship sessions on Next.js, React, 
+                  and frontend development best practices as part of the club’s activities.
                 </p>
               </li>
             </ul>
@@ -58,7 +51,7 @@ export default function Experience() {
         </ul>
       </div>
 
-      {/* Columna: Freelance */}
+      {/* Column: Freelance */}
       <div className="col-lg-6 mb-4">
         <ul className="list-unstyled">
           <li>
@@ -66,17 +59,16 @@ export default function Experience() {
             <ul className="list-unstyled ps-3 timeline">
               <li>
                 <p className="mb-0">
-                  <strong>Full-Stack Web Developer</strong> 2024 - 2025
+                  <strong>Full-Stack Web Developer</strong> – 2024 – 2025
                 </p>
                 <p className="text-muted">
-                  Desarrollo de proyectos completos de frontend y backend,
-                  diseñando arquitecturas robustas y optimizando la experiencia
-                  de usuario.
+                  Developed end-to-end frontend and backend projects, designing 
+                  robust architectures and optimizing the user experience.
                 </p>
                 <p className="text-muted">
-                  Mantengo comunicación constante y efectiva con el cliente para
-                  asegurar que los requerimientos se entiendan correctamente y
-                  se entreguen resultados a tiempo.
+                  Maintained constant and effective communication with clients 
+                  to ensure requirements were clearly understood and deliverables 
+                  were submitted on time.
                 </p>
               </li>
             </ul>
