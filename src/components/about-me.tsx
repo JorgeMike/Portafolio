@@ -43,17 +43,24 @@ export default function AboutMe() {
         <h4 className="fs-2">Some of my skills</h4>
         <div className="d-flex flex-wrap justify-content-center gap-2 mt-3 row-gap-3">
           {[
+            // Frontend
             { src: react, alt: "React" },
             { src: next, alt: "Next.js" },
-            { src: nest, alt: "NestJS" },
-            { src: typescript, alt: "TypeScript" },
-            { src: mariadb, alt: "MariaDB" },
-            { src: mongo, alt: "MongoDB" },
-            { src: python, alt: "Python" },
-            { src: docker, alt: "Docker" },
-            { src: github, alt: "GitHub" },
             { src: bootstrap, alt: "Bootstrap" },
             { src: sass, alt: "Sass" },
+
+            // Backend / Lenguajes
+            { src: nest, alt: "NestJS" },
+            { src: typescript, alt: "TypeScript" },
+            { src: python, alt: "Python" },
+
+            // Bases de datos
+            { src: mongo, alt: "MongoDB" },
+            { src: mariadb, alt: "MariaDB" },
+
+            // DevOps / Control de versiones
+            { src: docker, alt: "Docker" },
+            { src: github, alt: "GitHub" },
           ].map((img, idx) => (
             <Image
               key={idx}

@@ -49,15 +49,17 @@ hr {
   display: inline-block; /* Ajusta el ancho al contenido */
   position: relative;
 
-  &::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: calc(100% - 3rem); /* 2rem a la derecha del texto */
-    width: 15rem; /* Longitud fija de la línea (ajústala a lo que necesites) */
-    height: 2px;
-    background: linear-gradient(to right, $primary 0%, transparent 100%);
-    transform: translate(50%, -50%);
+  @include media-breakpoint-up(md) {
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: calc(100% - 3rem); /* 2rem a la derecha del texto */
+      width: 15rem; /* Longitud fija de la línea (ajústala a lo que necesites) */
+      height: 2px;
+      background: linear-gradient(to right, $primary 0%, transparent 100%);
+      transform: translate(50%, -50%);
+    }
   }
 }
 
@@ -133,8 +135,8 @@ hr {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 500px;
-    height: 500px;
+    width: 250px;
+    height: 250px;
     border-radius: 50%;
     background: radial-gradient(
       circle at center,
@@ -143,6 +145,18 @@ hr {
     );
     transform: translate(-50%, -50%);
     z-index: -1;
-    filter: blur(50px);
+    filter: blur(30px);
+
+    @include media-breakpoint-up(md) {
+      width: 400px;
+      height: 400px;
+      filter: blur(40px);
+    }
+
+    @include media-breakpoint-up(lg) {
+      width: 500px;
+      height: 500px;
+      filter: blur(50px);
+    }
   }
 }
