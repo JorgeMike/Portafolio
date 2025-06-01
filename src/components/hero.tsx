@@ -1,4 +1,4 @@
-import { inconsolata, spaceMono } from "@/app/fonts";
+import { inconsolata } from "@/app/fonts";
 import React from "react";
 import { motion } from "framer-motion";
 
@@ -30,7 +30,7 @@ export default function Hero() {
           transition={{ duration: 1, delay: 0.7 }}
           className="order-2 order-lg-1 me-lg-3 mb-0 display-3 fw-bold text-center text-lg-star"
         >
-          Hi, I'm Jorge Alvarado
+          Hi, I&apos;m Jorge Alvarado
         </motion.h1>
       </div>
       <motion.h1

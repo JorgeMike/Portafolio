@@ -29,7 +29,7 @@ export default function AboutMe() {
         </div>
         <h4 className="fs-2">How am I?</h4>
         <p>
-          I'm a <strong>Full-Stack Web Developer</strong> with a degree in{" "}
+          I&apos;m a <strong>Full-Stack Web Developer</strong> with a degree in{" "}
           <strong>Applied Mathematics and Computer Science from UNAM</strong>.
           With{" "}
           <strong>
