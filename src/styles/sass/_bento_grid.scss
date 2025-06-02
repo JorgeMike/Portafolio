@@ -1,0 +1,43 @@
+/* Bento Grid Container */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-auto-rows: 150px;
+  gap: 16px;
+}
+
+/* Common styling para cada grid item */
+.bgi {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 12px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* 1) Generar clases “base” (de 1×1 a 8×8), sin breakpoint */
+@for $c from 1 through 8 {
+  @for $r from 1 through 8 {
+    .bgi-#{$c}x#{$r} {
+      grid-column: span #{$c};
+      grid-row:    span #{$r};
+    }
+  }
+}
+
+/* 2) Generar clases para cada breakpoint de Bootstrap (sm, md, lg, xl, xxl) */
+$breakpoints: sm, md, lg, xl, xxl;
+
+@each $bp in $breakpoints {
+  @include media-breakpoint-up(#{$bp}) {
+    @for $c from 1 through 8 {
+      @for $r from 1 through 8 {
+        /* La clase resultante será, por ejemplo, “.bgi-md-2x2” */
+        .bgi-#{$bp}-#{$c}x#{$r} {
+          grid-column: span #{$c};
+          grid-row:    span #{$r};
+        }
+      }
+    }
+  }
+}

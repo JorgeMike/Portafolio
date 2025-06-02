@@ -14,6 +14,7 @@
 
 @import 'utils';
 @import './global.scss';
+@import 'bento_grid';
 
 @import 'bootstrap/scss/bootstrap';
 
@@ -47,4 +48,32 @@
 
 .placeholder-lg {
   min-height: 2.5em;
+}
+
+.flex-full-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.row-h-center {
+  display: flex;
+  justify-content: center;
+}
+
+.row-v-center {
+  display: flex;
+  align-items: center;
+}
+
+.col-h-center {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+}
+
+.col-v-center {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
 }

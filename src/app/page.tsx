@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import React from "react";
-import Contacts from "@/components/contacts";
-import Hero from "@/components/hero";
-import Content from "@/components/content";
+import React from 'react';
+import Contacts from '@/components/contacts';
+import Hero from '@/components/hero';
+import Content from '@/components/content';
 
 export default function Page() {
   return (

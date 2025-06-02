@@ -15,7 +15,7 @@ export default function Navbar() {
         maskImage: "linear-gradient(black 80%, transparent)",
       }}
     >
-      <div className="container">
+      <div className="container d-flex justify-content-end">
         <button
           className="navbar-toggler"
           type="button"

@@ -1,11 +1,11 @@
-"use client";
-import React, { useRef, useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import Navbar from "./navbar";
-import { inter } from "@/app/fonts";
-import AboutMe from "./about-me";
-import Experience from "./experience";
-import Projects from "./projects";
+'use client';
+import React, { useRef, useEffect, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import Navbar from './navbar';
+import { inter } from '@/app/fonts';
+import AboutMe from './about-me';
+import Experience from './experience';
+import Projects from './projects';
 
 export default function Page() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -19,10 +19,10 @@ export default function Page() {
       setShowNavbar(top <= 0);
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll(); // primera comprobación al montar
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -30,13 +30,13 @@ export default function Page() {
     <>
       <AnimatePresence>{showNavbar && <Navbar />}</AnimatePresence>
       <motion.section
-        initial={{ opacity: 0, y: 100, display: "none", position: "absolute" }}
-        animate={{ opacity: 1, y: 0, display: "block", position: "relative" }}
+        initial={{ opacity: 0, y: 100, display: 'none', position: 'absolute' }}
+        animate={{ opacity: 1, y: 0, display: 'block', position: 'relative' }}
         transition={{ duration: 1, delay: 1.5 }}
         ref={sectionRef}
         className={`container-fluid bg-white d-flex flex-column mt-4 z-1 min-vh-100 ${inter.className}`}
         style={{
-          paddingTop: "50px",
+          paddingTop: '50px',
         }}
       >
         <div className="container">

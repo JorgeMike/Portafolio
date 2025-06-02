@@ -10,7 +10,8 @@ import docker from "@/assets/docker.webp";
 import github from "@/assets/github.png";
 import bootstrap from "@/assets/bootstrap.png";
 import sass from "@/assets/sass.png";
-import me from "@/assets/mecut.png";
+import linux from "@/assets/linux.png";
+import me from "@/assets/avatar/mecut.png";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
@@ -61,6 +62,7 @@ export default function AboutMe() {
             // DevOps / Control de versiones
             { src: docker, alt: "Docker" },
             { src: github, alt: "GitHub" },
+            { src: linux, alt: "Linux" },
           ].map((img, idx) => (
             <Image
               key={idx}
