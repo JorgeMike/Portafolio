@@ -42,7 +42,11 @@ export default function Page() {
         <div className="container">
           <AboutMe />
           <Experience />
-          <Projects />
+        </div>
+        <div className="bg-primary bg-opacity-10 py-5 rounded-4">
+          <div className="container">
+            <Projects />
+          </div>
         </div>
       </motion.section>
     </>
