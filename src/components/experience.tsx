@@ -13,7 +13,7 @@ export default function Experience() {
       </h4>
 
       {/* Column: FES Acatlán */}
-      <div className="col-lg-6 mb-4">
+      <div className="col-lg-6">
         <ul className="list-unstyled">
           <li>
             <h5>FES Acatlán – UNAM</h5>
@@ -52,7 +52,7 @@ export default function Experience() {
       </div>
 
       {/* Column: Freelance */}
-      <div className="col-lg-6 mb-4">
+      <div className="col-lg-6">
         <ul className="list-unstyled">
           <li>
             <h5>Freelance Projects</h5>

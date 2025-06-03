@@ -6,6 +6,7 @@ import { inter } from '@/app/fonts';
 import AboutMe from './about-me';
 import Experience from './experience';
 import Projects from './projects';
+import PersonalProjects from './personal-projects';
 
 export default function Page() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -48,6 +49,14 @@ export default function Page() {
             <Projects />
           </div>
         </div>
+        <div className="container">
+          <PersonalProjects />
+        </div>
+        <footer className="bg-primary bg-opacity-10 py-4 mt-5">
+          <div className="container text-center">
+            <p className="mb-0 text-muted">2025</p>
+          </div>
+        </footer>
       </motion.section>
     </>
   );

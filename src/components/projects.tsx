@@ -1,6 +1,7 @@
 import React from "react";
 import SurveySystem from "./survey-system";
 import Cedetec from "./cedetec";
+import Vxta from "./vxta";
 
 export default function Projects() {
   return (
@@ -15,6 +16,7 @@ export default function Projects() {
       </h4>
       <SurveySystem />
       <Cedetec />
+      <Vxta />
     </section>
   );
 }

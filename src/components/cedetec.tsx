@@ -77,7 +77,7 @@ export default function Cedetec() {
         {/* 5. Automated PDF certificates */}
         <div className="bgi bgi-2x1 d-flex flex-column justify-content-center align-items-center">
           <i className="bi bi-file-earmark-pdf fs-1 text-danger mb-2"></i>
-          <p className="fs-5 text-center mb-0">
+          <p className="fs-6 text-muted text-center mb-0">
             Automated PDF certificates for event attendees
           </p>
         </div>
