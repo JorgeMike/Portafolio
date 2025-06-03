@@ -33,7 +33,7 @@ export default function PersonalProjects() {
           to orchestrate and connect the <strong>FastAPI</strong> backend,{' '}
           <strong>MySQL database</strong>, and <strong>Next.js</strong>{' '}
           frontend. Integrated{' '}
-          <strong>Google's Gemini text generation API</strong> to power the
+          <strong>Google&apos;s Gemini text generation API</strong> to power the
           chatbot, allowing users to interact and retrieve information about
           professors and courses.
         </p>
