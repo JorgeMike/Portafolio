@@ -1,6 +1,7 @@
 import React from 'react';
 import error from "@/assets/404.png";
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function NotFound() {
   return (
@@ -14,11 +15,11 @@ export default function NotFound() {
         />
         <h1 className="display-4 text-dark mb-3">Oops! Page Not Found!</h1>
         <p className="lead text-secondary mb-4">
-          It looks like this little corner of the web doesn't exist.<br />
+          It looks like this little corner of the web doesn&apos;t exist.
         </p>
-        <a href="/" className="btn btn-primary btn-lg">
+        <Link href="/" className="btn btn-primary btn-lg">
           Back to Home
-        </a>
+        </Link>
       </div>
     </div>
   );
