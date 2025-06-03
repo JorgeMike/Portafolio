@@ -7,7 +7,10 @@ import BootstrapClient from "@/components/bootstrap-client";
 
 export const metadata: Metadata = {
   title: "Web Developer Portfolio",
-  description: "",
+  description: "Welcome to my portfolio! I am a web developer with experience in Next.js, Nest.js, and TypeScript.",
+  icons: {
+    icon: '/favicon.png',
+  },
 };
 
 export default function RootLayout({
