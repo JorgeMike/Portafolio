@@ -13,7 +13,7 @@ export default function Vxta() {
       </h5>
 
       <div className="bento-grid">
-        <div className="bgi bgi-2x2 d-flex justify-content-center align-items-center">
+        <div className="bgi bgi-8x2 bgi-md-2x2 d-flex justify-content-center align-items-center">
           <Image
             src={me}
             alt="Me"
@@ -23,9 +23,11 @@ export default function Vxta() {
           />
         </div>
 
-        <div className="bgi bgi-3x1 rounded p-4 d-flex flex-column flex-md-row justify-content-center align-items-center gap-3">
+        <div className="bgi bgi-8x1 bgi-md-3x1 d-flex flex-column justify-content-center align-items-center">
           <div>
-            <p className="text-center fs-4 fw-bold">Monolithic application</p>
+            <p className="text-center fs-4 fw-bold m-0">
+              Monolithic application
+            </p>
             <p className="fs-5 text-center text-md-start mb-0 flex-grow-1 text-muted">
               built with&nbsp;
               <span className="badge bg-primary px-3 py-2 fs-6">Next.js</span>
@@ -35,9 +37,9 @@ export default function Vxta() {
           </div>
         </div>
 
-        <div className="bgi bgi-3x2"></div>
+        <div className="bgi bgi-8x2 bgi-md-3x2"></div>
 
-        <div className="bgi d-flex justify-content-center align-items-center">
+        <div className="bgi bgi-3x1 bgi-md-1x1 d-flex justify-content-center align-items-center">
           <Image
             src={next}
             alt="Next.js Logo"
@@ -46,7 +48,7 @@ export default function Vxta() {
           />
         </div>
 
-        <div className="bgi d-flex justify-content-center align-items-center">
+        <div className="bgi bgi-2x1 bgi-md-1x1 d-flex justify-content-center align-items-center">
           <Image
             src={mongodb}
             alt="MongoDB Logo"
@@ -55,7 +57,7 @@ export default function Vxta() {
           />
         </div>
 
-        <div className="bgi d-flex justify-content-center align-items-center">
+        <div className="bgi bgi-3x1 bgi-md-1x1 d-flex justify-content-center align-items-center">
           <Image src={nginx} alt="Nginx Logo" className="img-fluid" />
         </div>
 

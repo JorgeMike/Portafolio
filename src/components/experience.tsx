@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Experience() {
   return (
-    <section className="row mt-5">
+    <section className="row mt-5" id="experience">
       {/* Main title with years of experience indicator */}
       <div className="d-flex align-items-baseline">
         <h3 className="left-subtitle fs-1 fw-bold">My Experience</h3>

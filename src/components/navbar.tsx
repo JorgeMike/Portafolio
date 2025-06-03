@@ -45,8 +45,8 @@ export default function Navbar() {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#personal-projects">
-                Profesional Projects
+              <a className="nav-link" href="#professional-projects">
+                Professional Projects
               </a>
             </li>
             <li className="nav-item">
