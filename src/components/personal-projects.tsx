@@ -1,9 +1,16 @@
-import React from 'react';
+'use client';
+import React, { useEffect } from 'react';
 import farmacia from '@/assets/farmacia.png';
 import calculadora from '@/assets/calculadora.png';
 import Image from 'next/image';
+import 'lite-youtube-embed/src/lite-yt-embed.css';
 
 export default function PersonalProjects() {
+  useEffect(() => {
+    //@ts-ignore
+    import('lite-youtube-embed');
+  }, []);
+
   return (
     <section
       className="row row-gap-4 mt-5 d-flex align-items-center"
@@ -14,15 +21,11 @@ export default function PersonalProjects() {
       </div>
 
       <div className="col-12 col-md-6">
-        {/* Local video */}
-        <video
-          controls
-          className="img-fluid mt-3 rounded"
-          style={{ maxHeight: '100%', width: '100%' }}
-        >
-          <source src="/chatbot.mp4" type="video/webm" />
-          Your browser does not support the video element.
-        </video>
+        {React.createElement('lite-youtube', {
+          videoid: 'jLvXUXI2LAQ',
+          playlabel: 'Play Misprofesores video',
+          style: { width: '100%', height: '360px' },
+        })}
       </div>
 
       <div className="col-12 col-md-6">

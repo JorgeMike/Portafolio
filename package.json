@@ -11,6 +11,7 @@
   "dependencies": {
     "bootstrap": "^5.3.6",
     "bootstrap-icons": "^1.13.1",
+    "lite-youtube-embed": "^0.3.3",
     "motion": "^12.15.0",
     "motion-plus": "^0.1.9",
     "next": "15.3.2",
