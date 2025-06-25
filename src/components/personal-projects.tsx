@@ -7,7 +7,8 @@ import 'lite-youtube-embed/src/lite-yt-embed.css';
 
 export default function PersonalProjects() {
   useEffect(() => {
-    //@ts-ignore
+    //@ts-expect-error Dynamically import the lite-youtube-embed library to avoid SSR issues
+    // Dynamically import the lite-youtube-embed library to avoid SSR issues
     import('lite-youtube-embed');
   }, []);
 
