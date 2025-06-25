@@ -5,7 +5,10 @@ import Image from 'next/image';
 
 export default function PersonalProjects() {
   return (
-    <section className="row row-gap-4 mt-5 d-flex align-items-center" id="academic-projects">
+    <section
+      className="row row-gap-4 mt-5 d-flex align-items-center"
+      id="academic-projects"
+    >
       <div className="text-start">
         <h3 className="left-subtitle fs-1 fw-bold">Academic Projects</h3>
       </div>
@@ -17,7 +20,7 @@ export default function PersonalProjects() {
           className="img-fluid mt-3 rounded"
           style={{ maxHeight: '100%', width: '100%' }}
         >
-          <source src="/chatbot.webm" type="video/webm" />
+          <source src="/chatbot.mp4" type="video/webm" />
           Your browser does not support the video element.
         </video>
       </div>
@@ -41,7 +44,13 @@ export default function PersonalProjects() {
 
       {/* If you really wanted to duplicate this block, simply repeat it. Otherwise, you can remove one. */}
       <div className="col-12 col-md-6">
-        <h4 className="fs-1">UI of a pharmacy website</h4>
+        <a
+          href="https://jorgemike.github.io/Farmacia/"
+          className="text-dark"
+          target="_blank"
+        >
+          <h4 className="fs-1">UI of a pharmacy website</h4>
+        </a>
         <p className="text-muted">
           Simulation of a pharmacy website UI with Next.js and Bootstrap
         </p>
@@ -64,7 +73,13 @@ export default function PersonalProjects() {
       </div>
 
       <div className="col-12 col-md-6">
-        <h4 className="fs-1">Moratory Interest Calculator</h4>
+        <a
+          href="https://jorgemike.github.io/calculadora_interes_moratorio/"
+          className="text-dark"
+          target="_blank"
+        >
+          <h4 className="fs-1">Moratory Interest Calculator</h4>
+        </a>
         <p className="text-muted">
           Developed a web application to calculate moratory interest using{' '}
           <strong>Next.js</strong> and <strong>Bootstrap</strong>. The app
