@@ -1,0 +1,204 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/rendercv/rendercv/refs/tags/v2.5/schema.json
+cv:
+  name: Jorge Miguel Alvarado Reyes
+  headline: Desarrollador Fullstack
+  location: CDMX, México
+  email: miguel.alvarado.dev@gmail.com
+  photo:
+  phone: "+52 5546951819"
+  website: https://jorgemike.github.io/PortafolioV2/
+  social_networks:
+    - network: LinkedIn
+      username: jorge-alvarado-0bb17b218
+    - network: GitHub
+      username: JorgeMike
+  custom_connections:
+  sections:
+    resumen:
+      - |
+        Desarrollador Fullstack con más de 4 años de experiencia, con trayectoria que abarca desde
+        desarrollo frontend hasta liderazgo técnico de equipos. Experiencia sólida construyendo
+        aplicaciones de extremo a extremo con React, Next.js y TypeScript en el frontend, y Node.js,
+        NestJS y FastAPI en el backend, desplegadas sobre AWS y Google Cloud Platform. He liderado
+        arquitecturas de sistemas con miles de usuarios concurrentes, integrado soluciones de IA
+        generativa con impacto medible en tiempos y calidad de trabajo, y mentoreado a más de 20
+        desarrolladores. Orientado a construir productos escalables, mantenibles y centrados en el
+        usuario.
+
+    educacion:
+      - institution: Facultad de Estudios Superiores Acatlán - UNAM
+        area: Matemáticas Aplicadas y Computación
+        degree: Licenciatura
+        start_date: 2020-08
+        end_date: 2025-05
+        location: Naucalpan, Estado de México, México
+        highlights:
+          - "Proyecto de titulación: Sistema de Evaluación Docente"
+
+      - institution: Colegio de Bachilleres, Plantel 18 Tláhuac-Azcapotzalco
+        area: Programación en Java
+        degree: Técnico Auxiliar
+        start_date: 2016-08
+        end_date: 2019-06
+        location: Azcapotzalco, Ciudad de México, México
+
+    experiencia:
+      - company: Content-Oh!
+        position: Desarrollador Fullstack
+        start_date: 2025-07
+        end_date: present
+        location: Remoto
+        highlights:
+          - Resolví y reorganicé deuda técnica heredada de desarrolladores previos, restructurando funcionalidades dentro de múltiples aplicaciones de la empresa
+          - Implementé nuevos módulos de extremo a extremo, desde el levantamiento de requerimientos hasta el despliegue en producción
+          - Desarrollé servicios backend sobre AWS (Lambda, S3, IAM, RDS), usando DynamoDB para logs y SQL como base de datos principal
+          - Construí interfaces frontend con React, usando useReducer y Context API, e integré librerías de graficación, MUI, Tailwind CSS y shadcn/ui según el proyecto
+          - Configuré pipelines de despliegue automático (CI/CD) con GitHub Actions para el despliegue de nuevas funciones Lambda
+          - Implementé módulos con IA generativa (Gemini, ChatGPT, Claude) para creación de contenido de texto, edición de imágenes, auditorías de trabajo y corrección ortográfica
+          - Reduje en un 40% los tiempos en procesos de creación y edición de contenido, y homologación de información, mediante estas implementaciones de IA
+          - Reduje en un 60% los errores que provocaban rechazos de clientes y retrabajo del equipo, gracias a la implementación de auditorías y correcciones automatizadas con IA
+
+      - company: Centro de Desarrollo Tecnológico (CEDETEC), FES Acatlán - UNAM
+        position: Tech Lead
+        start_date: 2025-01
+        end_date: 2025-06
+        location: Naucalpan, México (presencial)
+        highlights:
+          - Lideré la organización y coordinación de equipos de desarrollo, dando seguimiento a avances mediante weeklies documentadas en tableros de Jira
+          - Supervisé Pull Requests antes de cada despliegue a pruebas o producción, garantizando calidad de código
+          - Mantuve participación activa en Figma y en desarrollo, con menor dedicación de tiempo al código frente a etapas anteriores
+          - Di continuidad al Sistema de Evaluación Docente (proyecto de titulación), la automatización de correos institucionales y la mentoría de estudiantes iniciadas en la etapa Fullstack
+
+      - company: Centro de Desarrollo Tecnológico (CEDETEC), FES Acatlán - UNAM
+        position: Desarrollador Fullstack
+        start_date: 2023-09
+        end_date: 2024-12
+        location: Naucalpan, México (presencial)
+        highlights:
+          - Lideré el flujo completo de sistemas institucionales, desde el levantamiento de requisitos con directivos hasta el despliegue
+          - Diseñé bases de datos en MariaDB y desarrollé backend en NestJS con TypeORM, siguiendo la arquitectura modular de NestJS
+          - Desarrollé frontend en Next.js, manteniendo la maquetación en Figma como parte del flujo de trabajo
+          - Implementé autenticación con JWT, incluyendo middlewares en frontend para protección de rutas y guards en backend para validación de firmas de token y verificación de usuarios existentes en base de datos
+          - Desarrollé el Sistema de Evaluación Docente como proyecto de titulación, incluyendo la aplicación de evaluaciones y la generación automática de reportes, reduciendo el tiempo de generación de 2-3 semanas (manual) a 5 minutos con información actualizada
+          - Implementé la automatización de envío de correos institucionales (Gmail API sobre Google Cloud) para notificar registros a eventos, avances en servicio social y cambios de contraseña, entre otros procesos
+          - Mentoreé estudiantes impartiendo cursos de desarrollo web y buenas prácticas de programación, en grupos de hasta 20 personas
+
+      - company: Independiente (Freelance) - Concesionaria de autos
+        position: Desarrollador Fullstack
+        start_date: 2024-01
+        end_date: 2024-12
+        location: Remoto
+        highlights:
+          - Desarrollé un sistema para la gestión de citas con clientes, almacenamiento de información de vehículos examinados durante inspecciones y registro de estudios de mercado para determinar ofertas de compra
+          - Lideré el flujo completo del proyecto, desde el levantamiento de requisitos hasta la configuración del servidor (Ubuntu Server, NGINX, PM2) y la base de datos en MongoDB
+          - Construí la aplicación con Next.js como monolito frontend y backend
+          - Unifiqué información de clientes, relacionando trabajadores con citas, diagnósticos y ventas, facilitando el ingreso de datos a la empresa
+          - Reduje tiempos y errores humanos u omisiones de información en un 30%
+
+      - company: Centro de Desarrollo Tecnológico (CEDETEC), FES Acatlán - UNAM
+        position: Desarrollador Frontend
+        start_date: 2022-08
+        end_date: 2023-08
+        location: Naucalpan, México (presencial)
+        highlights:
+          - Diseñé maquetas en Figma, presentando y adaptando propuestas a los requerimientos solicitados con foco en experiencia de usuario
+          - Traduje maquetas a código en proyectos con Next.js y TypeScript, usando Bootstrap modificado con SASS para mantener la identidad visual institucional de la universidad
+
+    proyectos:
+      - name: Chatbot de IA con NLP - misProfesores.com
+        date: 2025
+        highlights:
+          - Construí el flujo completo de datos — extracción vía web scraping, pipeline ETL (limpieza y normalización), almacenamiento en Google Cloud Platform y exposición mediante API REST con FastAPI (Python)
+          - Desarrollé el frontend en React para interacciones en tiempo real contra la API, integrando respuestas generadas por Google Gemini
+          - Desplegué todos los componentes (procesamiento de datos, backend y frontend) en GCP
+
+    reconocimientos:
+      - name: Segundo Lugar - Changemakers Social Challenge
+        date: 2024-11
+        organization: Changemakers
+        summary: "Categoría: Ciudades y Comunidades Sostenibles - Rural. Contribuí al desarrollo de \"Kachi\", una aplicación orientada a preservar las lenguas indígenas mexicanas mediante sistemas de aprendizaje continuo."
+        highlights:
+          - Implementé una API de traducción español-náhuatl usando modelos de Hugging Face y FastAPI, desplegada con ngrok para acceso remoto en tiempo real
+
+      - name: Participante - Swift Change Makers Hackathon
+        date: 2024-04
+        organization: Swift
+        summary: Hackathon a nivel nacional realizado en Monterrey, donde se desarrolló una solución tecnológica para una empresa patrocinadora.
+
+    habilidades:
+      - label: Backend
+        details: Node.js, NestJS, Express.js, Python, FastAPI, APIs RESTful, JWT, OAuth 2.0
+
+      - label: Frontend
+        details: React, Next.js, Redux, TypeScript, JavaScript, Vue.js, HTML, CSS, SASS, Tailwind CSS
+
+      - label: Bases de datos
+        details: MySQL, MariaDB, MongoDB, SQL
+
+      - label: Nube y DevOps
+        details: "AWS (Lambda, S3, CloudWatch, DynamoDB), Google Cloud Platform, Docker, Jenkins, NGINX, Git, CI/CD"
+
+      - label: Herramientas y Calidad
+        details: Jest, Postman, Looker Studio, Web Scraping, Nodemailer, Linux
+
+      - label: IA y Automatización
+        details: "Google Gemini API, Hugging Face, ChatGPT, Claude — integración de IA generativa en producto (autocompletado, edición de imágenes, corrección ortográfica) y como herramienta de trabajo diario para acelerar desarrollo"
+
+      - label: Metodologías y Diseño
+        details: Scrum, Jira, Figma
+
+    idiomas:
+      - label: Español
+        details: Nativo
+      - label: Inglés
+        details: Intermedio
+design:
+  theme: engineeringresumes
+  templates:
+    education_entry:
+      main_column: "**INSTITUTION**, DEGREE en AREA -- LOCATION\nSUMMARY\nHIGHLIGHTS"
+locale:
+  language: spanish
+  present: presente
+  month_abbreviations:
+    - Ene
+    - Feb
+    - Mar
+    - Abr
+    - May
+    - Jun
+    - Jul
+    - Ago
+    - Sep
+    - Oct
+    - Nov
+    - Dic
+  month_names:
+    - Enero
+    - Febrero
+    - Marzo
+    - Abril
+    - Mayo
+    - Junio
+    - Julio
+    - Agosto
+    - Septiembre
+    - Octubre
+    - Noviembre
+    - Diciembre
+settings:
+  current_date: "2026-03-28"
+  render_command:
+    design:
+    locale:
+    typst_path: output/NAME_IN_SNAKE_CASE_CV.typ
+    pdf_path: output/NAME_IN_SNAKE_CASE_CV.pdf
+    markdown_path: output/NAME_IN_SNAKE_CASE_CV.md
+    html_path: output/NAME_IN_SNAKE_CASE_CV.html
+    png_path: output/NAME_IN_SNAKE_CASE_CV.png
+    dont_generate_markdown: false
+    dont_generate_html: false
+    dont_generate_typst: false
+    dont_generate_pdf: false
+    dont_generate_png: true
+  bold_keywords: []
