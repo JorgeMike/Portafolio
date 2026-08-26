@@ -17,7 +17,11 @@ function Resumen() {
   })
 
   return (
-    <section id="resumen" ref={ref} className="mx-auto max-w-3xl px-6 py-24">
+    <section
+      id="resumen"
+      ref={ref}
+      className="mx-auto flex min-h-screen max-w-3xl flex-col justify-center px-6 py-24"
+    >
       <h2 className="text-sm text-term-green-dim">
         $ {command.output}
         {!command.done && <Cursor />}
