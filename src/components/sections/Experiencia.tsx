@@ -88,30 +88,33 @@ function Experiencia() {
         $ {command.output}
         {!command.done && <Cursor />}
       </h2>
-      <p className="mt-1 text-2xl font-semibold text-text md:text-3xl">
-        Experiencia
-      </p>
 
       {showContent && (
-        <Reveal className="mt-10">
-          <EntryCard entry={latest} featured />
+        <Reveal>
+          <p className="mt-1 text-2xl font-semibold text-text md:text-3xl">
+            Experiencia
+          </p>
 
-          <div className="mt-4 grid gap-4 md:grid-cols-2">
-            <div className="flex flex-col gap-8">
-              {columnLeft.map((entry) => (
-                <EntryCard
-                  key={`${entry.company}-${entry.position}-${entry.startDate}`}
-                  entry={entry}
-                />
-              ))}
-            </div>
-            <div className="flex flex-col gap-8 md:mt-14">
-              {columnRight.map((entry) => (
-                <EntryCard
-                  key={`${entry.company}-${entry.position}-${entry.startDate}`}
-                  entry={entry}
-                />
-              ))}
+          <div className="mt-10">
+            <EntryCard entry={latest} featured />
+
+            <div className="mt-4 grid gap-4 md:grid-cols-2">
+              <div className="flex flex-col gap-8">
+                {columnLeft.map((entry) => (
+                  <EntryCard
+                    key={`${entry.company}-${entry.position}-${entry.startDate}`}
+                    entry={entry}
+                  />
+                ))}
+              </div>
+              <div className="flex flex-col gap-8 md:mt-14">
+                {columnRight.map((entry) => (
+                  <EntryCard
+                    key={`${entry.company}-${entry.position}-${entry.startDate}`}
+                    entry={entry}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </Reveal>
