@@ -1,23 +1,19 @@
 @import 'tailwindcss';
-@import '@fontsource/space-grotesk/500.css';
-@import '@fontsource/space-grotesk/600.css';
-@import '@fontsource/space-grotesk/700.css';
-@import '@fontsource/inter/400.css';
-@import '@fontsource/inter/500.css';
-@import '@fontsource/inter/600.css';
+@import '@fontsource/jetbrains-mono/400.css';
+@import '@fontsource/jetbrains-mono/500.css';
+@import '@fontsource/jetbrains-mono/600.css';
+@import '@fontsource/jetbrains-mono/700.css';
 
 @theme {
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --font-heading: 'Space Grotesk', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'Courier New', monospace;
 
-  --color-bg: #0a0a0f;
-  --color-bg-soft: #12121a;
-  --color-surface: #16161f;
-  --color-border: #26262f;
-  --color-text: #a1a1aa;
-  --color-text-h: #f4f4f5;
-  --color-accent: #aa3bff;
-  --color-accent-soft: #c084fc;
+  --color-bg: #000000;
+  --color-surface: #0a0a0a;
+  --color-border: #1a1a1a;
+  --color-text: #ededed;
+  --color-text-dim: #808080;
+  --color-term-green: #33ff66;
+  --color-term-green-dim: #1f9e44;
 }
 
 html {
@@ -29,7 +25,7 @@ body {
   margin: 0;
   background: var(--color-bg);
   color: var(--color-text);
-  font-family: var(--font-sans);
+  font-family: var(--font-mono);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -38,6 +34,6 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: var(--font-heading);
-  color: var(--color-text-h);
+  font-family: var(--font-mono);
+  color: var(--color-text);
 }
