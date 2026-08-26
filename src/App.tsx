@@ -2,6 +2,7 @@ import Hero from './components/sections/Hero'
 import Resumen from './components/sections/Resumen'
 import Experiencia from './components/sections/Experiencia'
 import Habilidades from './components/sections/Habilidades'
+import Contacto from './components/sections/Contacto'
 
 function App() {
   return (
@@ -18,9 +19,7 @@ function App() {
 
       <Habilidades />
 
-      <section id="contacto" className="mx-auto max-w-3xl px-6 py-24 text-center">
-        <h2 className="text-2xl font-semibold">Contacto</h2>
-      </section>
+      <Contacto />
     </main>
   )
 }
