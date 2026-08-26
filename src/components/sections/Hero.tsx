@@ -1,28 +1,12 @@
-import { useState, type ReactNode } from 'react'
-import { motion } from 'motion/react'
+import { useState } from 'react'
 import { hero } from '../../data/hero'
 import { useTypewriter } from '../../lib/useTypewriter'
 import heroImage from '../../assets/hero.png'
+import Reveal from '../terminal/Reveal'
+import Cursor from '../terminal/Cursor'
 
 function scrollToSection(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-}
-
-function Cursor() {
-  return <span className="animate-pulse text-term-green">▍</span>
-}
-
-function Reveal({ children, className }: { children: ReactNode; className?: string }) {
-  return (
-    <motion.div
-      initial={{ height: 0, opacity: 0 }}
-      animate={{ height: 'auto', opacity: 1 }}
-      transition={{ duration: 0.5, ease: 'easeOut' }}
-      className={`overflow-hidden ${className ?? ''}`}
-    >
-      {children}
-    </motion.div>
-  )
 }
 
 function Hero() {
