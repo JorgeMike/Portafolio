@@ -1,25 +1,25 @@
-import { useState } from 'react'
-import { habilidades, type SkillGroup } from '../../data/habilidades'
-import { useTypewriter } from '../../lib/useTypewriter'
-import { useInView } from '../../lib/useInView'
-import Reveal from '../terminal/Reveal'
-import Cursor from '../terminal/Cursor'
-import TechIcon from '../terminal/TechIcon'
+import { useState } from "react";
+import { habilidades, type SkillGroup } from "../../data/habilidades";
+import { useTypewriter } from "../../lib/useTypewriter";
+import { useInView } from "../../lib/useInView";
+import Reveal from "../terminal/Reveal";
+import Cursor from "../terminal/Cursor";
+import TechIcon from "../terminal/TechIcon";
 
 function SkillGroupBlock({
   group,
   start,
   onDone,
 }: {
-  group: SkillGroup
-  start: boolean
-  onDone: () => void
+  group: SkillGroup;
+  start: boolean;
+  onDone: () => void;
 }) {
   const label = useTypewriter(group.label, {
     start,
     speed: 45,
     onDone,
-  })
+  });
 
   return (
     <div>
@@ -37,7 +37,11 @@ function SkillGroupBlock({
                 className="flex items-center gap-2 rounded-md border border-border px-3 py-1.5 text-sm text-text"
               >
                 {tech.icon ? (
-                  <TechIcon path={tech.icon.path} hex={tech.icon.hex} label={tech.name} />
+                  <TechIcon
+                    path={tech.icon.path}
+                    hex={tech.icon.hex}
+                    label={tech.name}
+                  />
                 ) : (
                   <span className="h-5 w-5 shrink-0" />
                 )}
@@ -48,22 +52,26 @@ function SkillGroupBlock({
         </Reveal>
       )}
     </div>
-  )
+  );
 }
 
 function Habilidades() {
-  const { ref, inView } = useInView<HTMLElement>()
-  const [showContent, setShowContent] = useState(false)
-  const [activeGroup, setActiveGroup] = useState(0)
+  const { ref, inView } = useInView<HTMLElement>();
+  const [showContent, setShowContent] = useState(false);
+  const [activeGroup, setActiveGroup] = useState(0);
 
   const command = useTypewriter(habilidades.command, {
     start: inView,
     speed: 70,
     onDone: () => setTimeout(() => setShowContent(true), 200),
-  })
+  });
 
   return (
-    <section id="habilidades" ref={ref} className="mx-auto max-w-3xl px-6 py-24">
+    <section
+      id="habilidades"
+      ref={ref}
+      className="mx-auto flex flex-col min-h-screen max-w-3xl px-6 py-24"
+    >
       <h2 className="text-sm text-term-green-dim">
         $ {command.output}
         {!command.done && <Cursor />}
@@ -71,7 +79,9 @@ function Habilidades() {
 
       {showContent && (
         <Reveal>
-          <p className="mt-1 text-2xl font-semibold text-text md:text-3xl">Habilidades</p>
+          <p className="mt-1 text-2xl font-semibold text-text md:text-3xl">
+            Habilidades
+          </p>
 
           <div className="mt-10 flex flex-col gap-8">
             {habilidades.groups.map((group, index) => (
@@ -79,14 +89,16 @@ function Habilidades() {
                 key={group.label}
                 group={group}
                 start={index <= activeGroup}
-                onDone={() => setActiveGroup((current) => Math.max(current, index + 1))}
+                onDone={() =>
+                  setActiveGroup((current) => Math.max(current, index + 1))
+                }
               />
             ))}
           </div>
         </Reveal>
       )}
     </section>
-  )
+  );
 }
 
-export default Habilidades
+export default Habilidades;

@@ -1,26 +1,26 @@
-import { useState } from 'react'
-import { resumen } from '../../data/resumen'
-import { useTypewriter } from '../../lib/useTypewriter'
-import { useInView } from '../../lib/useInView'
-import Reveal from '../terminal/Reveal'
-import Cursor from '../terminal/Cursor'
+import { useState } from "react";
+import { resumen } from "../../data/resumen";
+import { useTypewriter } from "../../lib/useTypewriter";
+import { useInView } from "../../lib/useInView";
+import Reveal from "../terminal/Reveal";
+import Cursor from "../terminal/Cursor";
 
 function Resumen() {
-  const { ref, inView } = useInView<HTMLElement>()
-  const [showSummary, setShowSummary] = useState(false)
-  const [showStats, setShowStats] = useState(false)
+  const { ref, inView } = useInView<HTMLElement>();
+  const [showSummary, setShowSummary] = useState(false);
+  const [showStats, setShowStats] = useState(false);
 
   const command = useTypewriter(resumen.command, {
     start: inView,
     speed: 70,
     onDone: () => setTimeout(() => setShowSummary(true), 200),
-  })
+  });
 
   return (
     <section
       id="resumen"
       ref={ref}
-      className="mx-auto flex min-h-screen max-w-3xl flex-col justify-center px-6 py-24"
+      className="mx-auto flex min-h-screen max-w-3xl flex-col justify-center px-6 py-34"
     >
       <h2 className="text-sm text-term-green-dim">
         $ {command.output}
@@ -44,14 +44,16 @@ function Resumen() {
                 <dd className="text-4xl font-semibold text-term-green md:text-5xl">
                   {stat.value}
                 </dd>
-                <dd className="mt-2 text-sm text-text md:text-base">{stat.label}</dd>
+                <dd className="mt-2 text-sm text-text md:text-base">
+                  {stat.label}
+                </dd>
               </div>
             ))}
           </dl>
         </Reveal>
       )}
     </section>
-  )
+  );
 }
 
-export default Resumen
+export default Resumen;

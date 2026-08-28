@@ -82,7 +82,7 @@ function Experiencia() {
     <section
       id="experiencia"
       ref={ref}
-      className="mx-auto max-w-3xl px-6 py-24"
+      className="mx-auto flex flex-col min-h-screen max-w-3xl px-6 py-34"
     >
       <h2 className="text-sm text-term-green-dim">
         $ {command.output}

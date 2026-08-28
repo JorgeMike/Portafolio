@@ -57,6 +57,9 @@ cv:
           - Implementé módulos con IA generativa (Gemini, ChatGPT, Claude) para creación de contenido de texto, edición de imágenes, auditorías de trabajo y corrección ortográfica
           - Reduje en un 40% los tiempos en procesos de creación y edición de contenido, y homologación de información, mediante estas implementaciones de IA
           - Reduje en un 60% los errores que provocaban rechazos de clientes y retrabajo del equipo, gracias a la implementación de auditorías y correcciones automatizadas con IA
+          - Desarrollé procesos de web scraping sobre páginas de posibles clientes para generar análisis de datos de sus productos (a modo de auditoría) y dar seguimiento a sus ventas y contenido, mejorando el acercamiento comercial con el cliente
+          - Generé análisis comparativos de antes y después de nuestro trabajo sobre los productos del cliente, evidenciando el valor agregado por la empresa
+          - Desarrollé sistemas que, además de su función principal, permitían medir el desempeño de los trabajadores
 
       - company: Centro de Desarrollo Tecnológico (CEDETEC), FES Acatlán - UNAM
         position: Tech Lead
@@ -83,6 +86,15 @@ cv:
           - Implementé la automatización de envío de correos institucionales (Gmail API sobre Google Cloud) para notificar registros a eventos, avances en servicio social y cambios de contraseña, entre otros procesos
           - Mentoreé estudiantes impartiendo cursos de desarrollo web y buenas prácticas de programación, en grupos de hasta 20 personas
 
+      - company: Centro de Desarrollo Tecnológico (CEDETEC), FES Acatlán - UNAM
+        position: Analista de Datos
+        start_date: 2022-08
+        end_date: 2025-06
+        location: Naucalpan, México (presencial)
+        highlights:
+          - Analicé datos de asistencia a eventos, identificando quiénes asistieron y quiénes no junto con sus respuestas, para priorizar el envío de correos a personas con mayor probabilidad de asistir a eventos similares
+          - Analicé resultados de evaluación docente como apoyo a la toma de decisiones de la facultad
+
       - company: Independiente (Freelance) - Concesionaria de autos
         position: Desarrollador Fullstack
         start_date: 2024-01
@@ -105,6 +117,52 @@ cv:
           - Traduje maquetas a código en proyectos con Next.js y TypeScript, usando Bootstrap modificado con SASS para mantener la identidad visual institucional de la universidad
 
     proyectos:
+      - name: Sistema de Registro de Eventos - FES Acatlán, UNAM
+        date: 2022-2025
+        highlights:
+          - Desarrollé el sistema de generación de eventos y formularios de participación usado por toda la facultad, con gestión de cupos, envío automático de correos y pases de lista mediante códigos QR
+          - Implementé gestión de usuarios con roles de administrador y staff, banners dinámicos y metaetiquetas (SEO) para personalizar la vista compartida en redes sociales según cada evento
+          - Desarrollé la generación de reportes en formato Excel sobre las respuestas recopiladas en los formularios
+          - Implementé formularios exclusivos para asistentes confirmados por QR, garantizando que solo personas que realmente asistieron a un evento pudieran responderlos
+
+      - name: Sistema de Encuestas de Evaluación Docente - FES Acatlán, UNAM
+        date: 2022-2025
+        highlights:
+          - Desarrollé el sistema utilizado por estudiantes de la facultad para calificar el desempeño docente mediante cuestionarios dinámicos aplicados por un encuestador
+          - Implementé múltiples roles de usuario con acceso a recursos limitado según el rol y las carreras asignadas a cada usuario
+          - Desarrollé para administradores la revisión de respuestas en tiempo real por grupo, materia y carrera
+          - Implementé la generación de reportes de resultados agregados e individuales a nivel profesor, grupo, materia y carrera
+
+      - name: Sistema de Censo de Activos - FES Acatlán, UNAM
+        date: 2022-2025
+        highlights:
+          - Desarrollé el sistema utilizado por personal administrativo para realizar censos de materiales de trabajo de la facultad mediante escaneo de códigos de barras
+          - Implementé la búsqueda, creación y edición de registros en base de datos para apoyar auditorías y confirmar ubicación y actividad de los activos universitarios
+
+      - name: Sistema de Votaciones - FES Acatlán, UNAM
+        date: 2022-2025
+        highlights:
+          - Desarrollé el sistema de registro de planillas de candidatos a distintos puestos dentro de la universidad
+          - Implementé la lógica de votación conforme a reglas entre múltiples candidatos por un mismo puesto
+          - Desarrollé paneles en tiempo real mediante WebSockets para actualizar resultados en un monitor electoral
+          - Implementé la generación de actas de resultados
+
+      - name: Sistema de Directorio de Trabajadores - FES Acatlán, UNAM
+        date: 2022-2025
+        highlights:
+          - Desarrollé el sistema interno para la búsqueda y registro de trabajadores de la facultad, utilizado por el propio personal para localizarse entre sí
+
+      - name: Página web CEDETEC - FES Acatlán, UNAM
+        date: 2022-2025
+        highlights:
+          - Desarrollé la página informativa semi-estática de CEDETEC (cedetec.acatlan.unam.mx), con información de servicios, horarios, proyectos y áreas del centro
+          - Implementé un módulo de creación de eventos internos con registro de asistencia, banners dinámicos y recepción de comentarios sobre el servicio
+
+      - name: Página web PAIDI - FES Acatlán, UNAM
+        date: 2022-2025
+        highlights:
+          - Desarrollé y actualicé la página informativa estática del Programa de Apoyo a la Investigación para el Desarrollo y la Innovación (paidi.acatlan.unam.mx)
+
       - name: Chatbot de IA con NLP - misProfesores.com
         date: 2025
         highlights:
@@ -112,11 +170,23 @@ cv:
           - Desarrollé el frontend en React para interacciones en tiempo real contra la API, integrando respuestas generadas por Google Gemini
           - Desplegué todos los componentes (procesamiento de datos, backend y frontend) en GCP
 
+      - name: Calculadora de Interés Moratorio
+        date: Escolar
+        url: https://jorgemike.github.io/calculadora_interes_moratorio/
+        highlights:
+          - Calculadora de interés moratorio
+
+      - name: Farmacia - UI E-commerce
+        date: Escolar
+        url: https://jorgemike.github.io/Farmacia/
+        highlights:
+          - UI de e-commerce de farmacia
+
     reconocimientos:
       - name: Segundo Lugar - Changemakers Social Challenge
         date: 2024-11
         organization: Changemakers
-        summary: "Categoría: Ciudades y Comunidades Sostenibles - Rural. Contribuí al desarrollo de \"Kachi\", una aplicación orientada a preservar las lenguas indígenas mexicanas mediante sistemas de aprendizaje continuo."
+        summary: 'Categoría: Ciudades y Comunidades Sostenibles - Rural. Contribuí al desarrollo de "Kachi", una aplicación orientada a preservar las lenguas indígenas mexicanas mediante sistemas de aprendizaje continuo.'
         highlights:
           - Implementé una API de traducción español-náhuatl usando modelos de Hugging Face y FastAPI, desplegada con ngrok para acceso remoto en tiempo real
 
