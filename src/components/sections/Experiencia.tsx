@@ -106,6 +106,7 @@ type LayoutTarget = {
   y: number;
   width: number;
   height: number;
+  rotate?: number;
 };
 
 function zoneTarget(
@@ -175,7 +176,11 @@ function imageRestTarget(
   };
 }
 
-function imageActiveTarget(cardTarget: LayoutTarget, slot: number): LayoutTarget {
+function imageActiveTarget(
+  cardTarget: LayoutTarget,
+  slot: number,
+  entrySeed: number,
+): LayoutTarget {
   const col = slot % 2;
   const row = Math.floor(slot / 2);
 
@@ -186,11 +191,22 @@ function imageActiveTarget(cardTarget: LayoutTarget, slot: number): LayoutTarget
   const galleryX = contentX + contentWidth / 2 + CARD_CONTENT_GAP / 2;
   const { cellWidth, cellHeight } = galleryCellSize(cardTarget.width);
 
+  const anchorX = galleryX + col * (cellWidth + CARD_CONTENT_GAP);
+  const anchorY = contentY + row * (cellHeight + CARD_CONTENT_GAP);
+
+  const jitter = jitterFor(entrySeed, slot + 20);
+  const width = cellWidth * (1 + jitter.x * 0.08);
+  const height = cellHeight * (1 + jitter.y * 0.08);
+  const offsetX = jitter.x * cellWidth * 0.12;
+  const offsetY = jitter.y * cellHeight * 0.12;
+  const rotate = jitter.rotate * 5;
+
   return {
-    x: galleryX + col * (cellWidth + CARD_CONTENT_GAP),
-    y: contentY + row * (cellHeight + CARD_CONTENT_GAP),
-    width: cellWidth,
-    height: cellHeight,
+    x: anchorX + offsetX,
+    y: anchorY + offsetY,
+    width,
+    height,
+    rotate,
   };
 }
 
@@ -244,6 +260,7 @@ function ImageNode({
         opacity: dipping ? [targetOpacity, 0.15, targetOpacity] : targetOpacity,
         backgroundColor: targetColor,
         borderRadius: isActive ? 6 : 0,
+        rotate: isActive ? (target.rotate ?? 0) : 0,
       }}
       transition={{
         x: springTransition,
@@ -255,9 +272,10 @@ function ImageNode({
           : { duration: 0.2 },
         backgroundColor: { duration: 0.3 },
         borderRadius: { duration: 0.3 },
+        rotate: springTransition,
       }}
-      style={{ zIndex: isActive ? 11 : 1 }}
-      className="absolute left-0 top-0 flex items-center justify-center overflow-hidden border border-border"
+      style={{ zIndex: isActive ? 11 + slot : 1 }}
+      className="absolute left-0 top-0 flex items-center justify-center overflow-hidden border border-border shadow-lg shadow-black/40"
     >
       {isActive && (
         <motion.div
@@ -325,6 +343,7 @@ function ExperienceNode({
         height: target.height,
         opacity: dipping ? [targetOpacity, 0.15, targetOpacity] : targetOpacity,
         borderRadius: isActive ? 8 : 0,
+        borderWidth: isActive ? 0 : 1,
       }}
       transition={{
         x: springTransition,
@@ -335,9 +354,10 @@ function ExperienceNode({
           ? { duration: 0.7, times: [0, 0.55, 1], ease: "easeInOut" }
           : { duration: 0.2 },
         borderRadius: { duration: 0.3 },
+        borderWidth: { duration: 0.3 },
       }}
       style={{ zIndex: isActive ? 10 : 1 }}
-      className="absolute left-0 top-0 overflow-hidden border border-term-green-dim bg-bg"
+      className="absolute left-0 top-0 overflow-hidden border-solid border-term-green-dim bg-bg"
     >
       <AnimatePresence initial={false}>
         {isActive ? (
@@ -491,7 +511,7 @@ function Experiencia() {
                     hidden={isActive && isMobile}
                     target={
                       isActive
-                        ? imageActiveTarget(target, slot)
+                        ? imageActiveTarget(target, slot, index)
                         : imageRestTarget(target, slot, index)
                     }
                   />
