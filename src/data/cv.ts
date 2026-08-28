@@ -125,7 +125,7 @@ export const hero: HeroData = {
 export const resumen: ResumenData = {
   command: "cat ./resumen.txt",
   summary:
-    "Desarrollador Fullstack con trayectoria desde frontend hasta liderazgo técnico. Construyo aplicaciones de extremo a extremo con React, Next.js y Node.js, desplegadas sobre AWS y Google Cloud.",
+    "Desarrollador Fullstack apasionado por la automatización y el desarrollo de herramientas que agilizan el trabajo. Me gusta resolver problemas de raíz, aprender y construir software.",
   stats: [
     { value: "4+", label: "años de experiencia" },
     { value: "20+", label: "desarrolladores mentoreados" },

@@ -1,10 +1,15 @@
 import { useEffect, useState } from "react";
+import { ChevronDown } from "lucide-react";
 import { contacto, hero, heroTechIcons } from "../../data/cv";
 import { useTypewriter } from "../../lib/useTypewriter";
 import { useMouseParallax } from "../../lib/useMouseParallax";
 import Reveal from "../terminal/Reveal";
 import Cursor from "../terminal/Cursor";
 import FloatingTechIcons from "../terminal/FloatingTechIcons";
+
+function scrollToResumen() {
+  document.getElementById("resumen")?.scrollIntoView({ behavior: "smooth" });
+}
 
 function Hero() {
   const [showIdentity, setShowIdentity] = useState(false);
@@ -25,7 +30,7 @@ function Hero() {
   return (
     <section
       id="hero"
-      className="flex min-h-screen items-center justify-center px-6 py-24"
+      className="relative flex min-h-screen items-center justify-center px-6 py-24"
     >
       <div
         ref={parallaxRef}
@@ -87,6 +92,19 @@ function Hero() {
           </div>
         </div>
       </div>
+
+      {showIdentity && (
+        <Reveal className="absolute bottom-10 left-1/2 -translate-x-1/2">
+          <button
+            type="button"
+            onClick={scrollToResumen}
+            aria-label="Ir a la sección Quién soy"
+            className="animate-bounce text-term-green-dim transition-colors hover:text-term-green"
+          >
+            <ChevronDown className="h-7 w-7" strokeWidth={1.75} />
+          </button>
+        </Reveal>
+      )}
     </section>
   );
 }

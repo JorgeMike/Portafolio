@@ -28,49 +28,59 @@ function Resumen() {
     <section
       id="resumen"
       ref={ref}
-      className="mx-auto flex min-h-screen max-w-4xl flex-col justify-center px-6 py-34"
+      className="mx-auto flex min-h-screen max-w-5xl flex-col justify-center px-6 py-24"
     >
-      <h2 className="text-sm text-term-green-dim">
-        $ {command.output}
-        {!command.done && <Cursor />}
-      </h2>
+      <div className="grid gap-10 md:grid-cols-[1fr_auto] md:items-center">
+        <div>
+          <h2 className="text-sm text-term-green-dim">
+            $ {command.output}
+            {!command.done && <Cursor />}
+          </h2>
 
-      {showSummary && (
-        <Reveal>
-          <div className="mt-4 grid gap-10 md:grid-cols-[1fr_auto] md:items-start">
-            <div>
-              <p className="text-base leading-relaxed text-text-dim md:text-lg">
+          {showSummary && (
+            <Reveal>
+              <p className="mt-4 text-base leading-relaxed text-text-dim md:text-lg">
                 {resumen.summary}
               </p>
+            </Reveal>
+          )}
+        </div>
 
-              <p className="mt-6 text-sm md:text-base">
-                <span className="text-term-green">{hero.prompt}</span>{" "}
-                <span className="text-text">{imageCmd.output}</span>
-                {!imageCmd.done && <Cursor />}
-              </p>
+        {showSummary && (
+          <Reveal className="relative mx-auto w-64 md:mx-0 md:w-80">
+            <div
+              aria-hidden
+              className="absolute inset-0 -z-10 scale-125 rounded-full bg-term-green opacity-20 blur-3xl"
+            />
+
+            <div className="rounded-md border border-border bg-surface font-mono shadow-2xl">
+              <div className="flex items-center gap-1.5 border-b border-border px-3 py-2">
+                <span className="h-2 w-2 rounded-full bg-[#ff5f56]" />
+                <span className="h-2 w-2 rounded-full bg-[#ffbd2e]" />
+                <span className="h-2 w-2 rounded-full bg-[#27c93f]" />
+              </div>
+
+              <div className="px-3 py-2">
+                <p className="text-xs md:text-sm">
+                  <span className="text-term-green">{hero.prompt}</span>{" "}
+                  <span className="text-text">{imageCmd.output}</span>
+                  {!imageCmd.done && <Cursor />}
+                </p>
+              </div>
+
+              {showImageLine && (
+                <Reveal className="border-t border-term-green-dim">
+                  <img
+                    src={heroImage}
+                    alt={resumen.imageAlt}
+                    className="w-full grayscale-40 contrast-125"
+                  />
+                </Reveal>
+              )}
             </div>
-
-            {showImageLine && (
-              <Reveal className="mx-auto w-40 md:mx-0 md:w-48">
-                <div className="rounded-md border border-border bg-surface font-mono shadow-2xl">
-                  <div className="flex items-center gap-1.5 border-b border-border px-3 py-2">
-                    <span className="h-2 w-2 rounded-full bg-[#ff5f56]" />
-                    <span className="h-2 w-2 rounded-full bg-[#ffbd2e]" />
-                    <span className="h-2 w-2 rounded-full bg-[#27c93f]" />
-                  </div>
-                  <div className="border-t border-term-green-dim">
-                    <img
-                      src={heroImage}
-                      alt={resumen.imageAlt}
-                      className="w-full grayscale-40 contrast-125"
-                    />
-                  </div>
-                </div>
-              </Reveal>
-            )}
-          </div>
-        </Reveal>
-      )}
+          </Reveal>
+        )}
+      </div>
 
       {showImageLine && (
         <Reveal onAnimationComplete={() => setShowStats(true)}>

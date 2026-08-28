@@ -19,8 +19,13 @@
 html {
   color-scheme: dark;
   scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
   scrollbar-color: var(--color-term-green-dim) var(--color-bg);
   scrollbar-width: thin;
+}
+
+main > section {
+  scroll-snap-align: center;
 }
 
 ::-webkit-scrollbar {
