@@ -1,13 +1,16 @@
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 type Point = { x: number; y: number }
 
 export function useMouseParallax<T extends HTMLElement>(strength = 1) {
-  const ref = useRef<T | null>(null)
+  const [node, setNode] = useState<T | null>(null)
   const [offset, setOffset] = useState<Point>({ x: 0, y: 0 })
 
+  const ref = useCallback((element: T | null) => {
+    setNode(element)
+  }, [])
+
   useEffect(() => {
-    const node = ref.current
     if (!node) return
 
     function handleMove(event: MouseEvent) {
@@ -31,7 +34,7 @@ export function useMouseParallax<T extends HTMLElement>(strength = 1) {
       window.removeEventListener('mousemove', handleMove)
       node?.removeEventListener('mouseleave', handleLeave)
     }
-  }, [strength])
+  }, [node, strength])
 
   return { ref, offset }
 }

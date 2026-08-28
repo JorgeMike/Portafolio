@@ -2,15 +2,18 @@ import { useState } from "react";
 import { resumen, hero } from "../../data/cv";
 import { useTypewriter } from "../../lib/useTypewriter";
 import { useInView } from "../../lib/useInView";
+import { useMouseParallax } from "../../lib/useMouseParallax";
 import heroImage from "../../assets/hero.png";
 import Reveal from "../terminal/Reveal";
 import Cursor from "../terminal/Cursor";
+import SocialIcons from "../terminal/SocialIcons";
 
 function Resumen() {
   const { ref, inView } = useInView<HTMLElement>();
   const [showSummary, setShowSummary] = useState(false);
-  const [showStats, setShowStats] = useState(false);
   const [showImageLine, setShowImageLine] = useState(false);
+
+  const { ref: parallaxRef, offset } = useMouseParallax<HTMLDivElement>(4);
 
   const command = useTypewriter(resumen.command, {
     start: inView,
@@ -42,48 +45,63 @@ function Resumen() {
               <p className="mt-4 text-base leading-relaxed text-text-dim md:text-lg">
                 {resumen.summary}
               </p>
+              <div className="mt-5">
+                <SocialIcons />
+              </div>
             </Reveal>
           )}
         </div>
 
         {showSummary && (
-          <Reveal className="relative mx-auto w-64 md:mx-0 md:w-80">
+          <div
+            ref={parallaxRef}
+            className="relative isolate mx-auto w-64 md:mx-0 md:w-80"
+            style={{ perspective: "1600px" }}
+          >
             <div
               aria-hidden
-              className="absolute inset-0 -z-10 scale-125 rounded-full bg-term-green opacity-20 blur-3xl"
+              className="absolute inset-0 z-0 scale-100 rounded-full bg-term-green opacity-10 blur-3xl"
             />
 
-            <div className="rounded-md border border-border bg-surface font-mono shadow-2xl">
-              <div className="flex items-center gap-1.5 border-b border-border px-3 py-2">
-                <span className="h-2 w-2 rounded-full bg-[#ff5f56]" />
-                <span className="h-2 w-2 rounded-full bg-[#ffbd2e]" />
-                <span className="h-2 w-2 rounded-full bg-[#27c93f]" />
-              </div>
+            <Reveal className="relative z-10">
+              <div
+                className="rounded-md border border-border bg-surface font-mono shadow-2xl transition-transform duration-300 ease-out will-change-transform"
+                style={{
+                  transform: `rotateY(${offset.x}deg) rotateX(${-offset.y}deg)`,
+                  transformStyle: "preserve-3d",
+                }}
+              >
+                <div className="flex items-center gap-1.5 border-b border-border px-3 py-2">
+                  <span className="h-2 w-2 rounded-full bg-[#ff5f56]" />
+                  <span className="h-2 w-2 rounded-full bg-[#ffbd2e]" />
+                  <span className="h-2 w-2 rounded-full bg-[#27c93f]" />
+                </div>
 
-              <div className="px-3 py-2">
-                <p className="text-xs md:text-sm">
-                  <span className="text-term-green">{hero.prompt}</span>{" "}
-                  <span className="text-text">{imageCmd.output}</span>
-                  {!imageCmd.done && <Cursor />}
-                </p>
-              </div>
+                <div className="px-3 py-2">
+                  <p className="text-xs md:text-sm">
+                    <span className="text-term-green">{hero.prompt}</span>{" "}
+                    <span className="text-text">{imageCmd.output}</span>
+                    {!imageCmd.done && <Cursor />}
+                  </p>
+                </div>
 
-              {showImageLine && (
-                <Reveal className="border-t border-term-green-dim">
-                  <img
-                    src={heroImage}
-                    alt={resumen.imageAlt}
-                    className="w-full grayscale-40 contrast-125"
-                  />
-                </Reveal>
-              )}
-            </div>
-          </Reveal>
+                {showImageLine && (
+                  <Reveal className="border-t border-term-green-dim">
+                    <img
+                      src={heroImage}
+                      alt={resumen.imageAlt}
+                      className="w-full grayscale-40 contrast-125"
+                    />
+                  </Reveal>
+                )}
+              </div>
+            </Reveal>
+          </div>
         )}
       </div>
 
       {showImageLine && (
-        <Reveal onAnimationComplete={() => setShowStats(true)}>
+        <Reveal>
           <dl className="mt-12 grid grid-cols-2 gap-x-8 gap-y-10 border-t border-border pt-10 md:grid-cols-4">
             {resumen.stats.map((stat) => (
               <div key={stat.label}>
