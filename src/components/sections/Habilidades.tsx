@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { habilidades, type SkillGroup } from "../../data/habilidades";
+import { habilidades, type SkillGroup } from "../../data/cv";
 import { useTypewriter } from "../../lib/useTypewriter";
 import { useInView } from "../../lib/useInView";
 import Reveal from "../terminal/Reveal";

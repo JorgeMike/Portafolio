@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Mail, Phone, MapPin, ExternalLink } from "lucide-react";
 import { siGithub } from "simple-icons";
-import { contacto, type ContactChannel } from "../../data/contacto";
+import { contacto, type ContactChannel } from "../../data/cv";
 import { useTypewriter } from "../../lib/useTypewriter";
 import { useInView } from "../../lib/useInView";
 import Reveal from "../terminal/Reveal";

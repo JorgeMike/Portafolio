@@ -1,9 +1,9 @@
-import Hero from './components/sections/Hero'
-import Resumen from './components/sections/Resumen'
-import Experiencia from './components/sections/Experiencia'
-import Proyectos from './components/sections/Proyectos'
-import Habilidades from './components/sections/Habilidades'
-import Contacto from './components/sections/Contacto'
+import Hero from "./components/sections/Hero";
+import Resumen from "./components/sections/Resumen";
+import Experiencia from "./components/sections/Experiencia";
+import Proyectos from "./components/sections/Proyectos";
+import Habilidades from "./components/sections/Habilidades";
+import Contacto from "./components/sections/Contacto";
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
 
       <Contacto />
     </main>
-  )
+  );
 }
 
-export default App
+export default App;

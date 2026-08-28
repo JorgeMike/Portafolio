@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { experiencia, type ExperienciaEntry } from "../../data/experiencia";
+import { experiencia, type ExperienciaEntry } from "../../data/cv";
 import { useTypewriter } from "../../lib/useTypewriter";
 import { useInView } from "../../lib/useInView";
 import Reveal from "../terminal/Reveal";
 import Cursor from "../terminal/Cursor";
+import FloatingPixels from "../terminal/FloatingPixels";
 
 const MONTHS = [
   "Ene",
@@ -82,43 +83,47 @@ function Experiencia() {
     <section
       id="experiencia"
       ref={ref}
-      className="mx-auto flex flex-col min-h-screen max-w-3xl px-6 py-34"
+      className="relative flex flex-col min-h-screen py-34"
     >
-      <h2 className="text-sm text-term-green-dim">
-        $ {command.output}
-        {!command.done && <Cursor />}
-      </h2>
+      <FloatingPixels seed={7} count={30} />
 
-      {showContent && (
-        <Reveal>
-          <p className="mt-1 text-2xl font-semibold text-text md:text-3xl">
-            Experiencia
-          </p>
+      <div className="mx-auto w-full max-w-3xl px-6">
+        <h2 className="text-sm text-term-green-dim">
+          $ {command.output}
+          {!command.done && <Cursor />}
+        </h2>
 
-          <div className="mt-10">
-            <EntryCard entry={latest} featured />
+        {showContent && (
+          <Reveal>
+            <p className="mt-1 text-2xl font-semibold text-text md:text-3xl">
+              Experiencia
+            </p>
 
-            <div className="mt-4 grid gap-4 md:grid-cols-2">
-              <div className="flex flex-col gap-8">
-                {columnLeft.map((entry) => (
-                  <EntryCard
-                    key={`${entry.company}-${entry.position}-${entry.startDate}`}
-                    entry={entry}
-                  />
-                ))}
-              </div>
-              <div className="flex flex-col gap-8 md:mt-14">
-                {columnRight.map((entry) => (
-                  <EntryCard
-                    key={`${entry.company}-${entry.position}-${entry.startDate}`}
-                    entry={entry}
-                  />
-                ))}
+            <div className="mt-10">
+              <EntryCard entry={latest} featured />
+
+              <div className="mt-4 grid gap-4 md:grid-cols-2">
+                <div className="flex flex-col gap-8">
+                  {columnLeft.map((entry) => (
+                    <EntryCard
+                      key={`${entry.company}-${entry.position}-${entry.startDate}`}
+                      entry={entry}
+                    />
+                  ))}
+                </div>
+                <div className="flex flex-col gap-8 md:mt-14">
+                  {columnRight.map((entry) => (
+                    <EntryCard
+                      key={`${entry.company}-${entry.position}-${entry.startDate}`}
+                      entry={entry}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-        </Reveal>
-      )}
+          </Reveal>
+        )}
+      </div>
     </section>
   );
 }

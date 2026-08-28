@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { proyectos, type ProyectoEntry } from "../../data/proyectos";
+import { proyectos, type ProyectoEntry } from "../../data/cv";
 import { useTypewriter } from "../../lib/useTypewriter";
 import { useInView } from "../../lib/useInView";
 import Reveal from "../terminal/Reveal";
