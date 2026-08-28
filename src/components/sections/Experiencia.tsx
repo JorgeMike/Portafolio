@@ -1,11 +1,10 @@
 import { useState } from "react";
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "motion/react";
 import { experiencia, type ExperienciaEntry } from "../../data/cv";
 import { useInView } from "../../lib/useInView";
 import { useTypewriter } from "../../lib/useTypewriter";
-import Reveal from "../terminal/Reveal";
 import Cursor from "../terminal/Cursor";
 import FloatingPixels from "../terminal/FloatingPixels";
-import FloatingPixel from "../terminal/FloatingPixel";
 
 const MONTHS = [
   "Ene",
@@ -34,8 +33,12 @@ function formatRange(start: string, end: string) {
   return `${formatDate(start)} → ${formatDate(end)}`;
 }
 
-function EvidencePlaceholder({ entry }: { entry: ExperienciaEntry }) {
-  const initials = entry.companyShort
+function entryId(entry: ExperienciaEntry) {
+  return `${entry.company}-${entry.position}-${entry.startDate}`;
+}
+
+function initialsOf(entry: ExperienciaEntry) {
+  return entry.companyShort
     .replace(/[^A-Za-zÀ-ÿ0-9\s]/g, "")
     .split(/\s+/)
     .filter(Boolean)
@@ -43,6 +46,10 @@ function EvidencePlaceholder({ entry }: { entry: ExperienciaEntry }) {
     .map((word) => word[0])
     .join("")
     .toUpperCase();
+}
+
+function EvidencePlaceholder({ entry }: { entry: ExperienciaEntry }) {
+  const initials = initialsOf(entry);
 
   return (
     <div className="grid h-full grid-cols-2 gap-3">
@@ -63,8 +70,15 @@ function EvidencePlaceholder({ entry }: { entry: ExperienciaEntry }) {
 
 function EntryCard({ entry }: { entry: ExperienciaEntry }) {
   return (
-    <div className="grid gap-6 md:grid-cols-2 md:items-stretch">
-      <div className="flex flex-col gap-2 rounded-md border border-term-green-dim p-6">
+    <motion.div
+      key={entryId(entry)}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.35, ease: "easeOut" }}
+      className="grid gap-6 rounded-md border border-term-green-dim md:grid-cols-2 md:items-stretch"
+    >
+      <div className="flex flex-col gap-2 p-6">
         <p className="text-xs text-term-green-dim md:text-sm">
           {formatRange(entry.startDate, entry.endDate)}
         </p>
@@ -84,13 +98,40 @@ function EntryCard({ entry }: { entry: ExperienciaEntry }) {
         </ul>
       </div>
 
-      <EvidencePlaceholder entry={entry} />
-    </div>
+      <div className="p-6 pl-0 md:pl-0">
+        <EvidencePlaceholder entry={entry} />
+      </div>
+    </motion.div>
+  );
+}
+
+function ThumbPixel({
+  entry,
+  index,
+}: {
+  entry: ExperienciaEntry;
+  index: number;
+}) {
+  return (
+    <motion.div
+      key={entryId(entry)}
+      layout
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 0.6, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.5 }}
+      transition={{ duration: 0.35, ease: "easeOut" }}
+      className="h-3.5 w-3.5 rounded-md bg-term-green"
+      title={`${entry.position} · ${entry.companyShort}`}
+      style={{ order: index }}
+    />
   );
 }
 
 function Experiencia() {
-  const { ref, inView } = useInView<HTMLElement>();
+  const { ref: sectionInViewRef, inView } = useInView<HTMLElement>({
+    threshold: 0,
+    rootMargin: "-1px",
+  });
   const [showContent, setShowContent] = useState(false);
 
   const command = useTypewriter(experiencia.command, {
@@ -99,12 +140,29 @@ function Experiencia() {
     onDone: () => setTimeout(() => setShowContent(true), 200),
   });
 
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const { scrollYProgress } = useScroll({
+    target: sectionInViewRef,
+    offset: ["start start", "end end"],
+  });
+
+  useMotionValueEvent(scrollYProgress, "change", (progress) => {
+    const total = experiencia.entries.length;
+    const index = Math.min(total - 1, Math.floor(progress * total));
+    setActiveIndex(index);
+  });
+
+  const entries = experiencia.entries;
+  const passed = entries.slice(0, activeIndex);
+  const upcoming = entries.slice(activeIndex + 1);
+
   return (
     <section
       id="experiencia"
-      ref={ref}
+      ref={sectionInViewRef}
       className="relative"
-      style={{ height: "200vh" }}
+      style={{ height: `${entries.length * 100}vh` }}
     >
       <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden px-6 py-24">
         <FloatingPixels seed={7} count={30} />
@@ -116,31 +174,37 @@ function Experiencia() {
           </h2>
 
           {showContent && (
-            <Reveal>
+            <>
               <p className="mt-1 text-2xl font-semibold text-text md:text-3xl">
                 Experiencia
               </p>
 
               <div className="mt-8">
-                <EntryCard entry={experiencia.entries[0]} />
+                <AnimatePresence mode="wait">
+                  <EntryCard entry={entries[activeIndex]} />
+                </AnimatePresence>
               </div>
-            </Reveal>
+            </>
           )}
         </div>
 
         {showContent && (
-          <div className="absolute inset-x-0 bottom-10 mx-auto flex w-full max-w-md justify-between px-8">
-            {experiencia.entries.slice(1).map((entry, index) => (
-              <FloatingPixel
-                key={`${entry.company}-${entry.position}-${entry.startDate}`}
-                size={12 + index * 2}
-                variant={(index % 3) as 0 | 1 | 2}
-                duration={6 + index * 1.5}
-                delay={index * 0.4}
-                drift={8 + index * 2}
-                opacity={0.5 + index * 0.05}
-              />
-            ))}
+          <div className="absolute inset-x-0 top-10 mx-auto flex w-full max-w-md flex-wrap justify-center gap-3 px-8">
+            <AnimatePresence>
+              {passed.map((entry, index) => (
+                <ThumbPixel key={entryId(entry)} entry={entry} index={index} />
+              ))}
+            </AnimatePresence>
+          </div>
+        )}
+
+        {showContent && (
+          <div className="absolute inset-x-0 bottom-10 mx-auto flex w-full max-w-md flex-wrap justify-center gap-3 px-8">
+            <AnimatePresence>
+              {upcoming.map((entry, index) => (
+                <ThumbPixel key={entryId(entry)} entry={entry} index={index} />
+              ))}
+            </AnimatePresence>
           </div>
         )}
       </div>
