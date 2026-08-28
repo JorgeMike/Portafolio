@@ -28,6 +28,10 @@ main > section {
   scroll-snap-align: center;
 }
 
+main > section#experiencia {
+  scroll-snap-align: none;
+}
+
 ::-webkit-scrollbar {
   width: 12px;
   height: 12px;
