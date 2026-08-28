@@ -35,6 +35,11 @@ import {
   siLinux,
 } from "simple-icons";
 
+import contentohLogo from "../assets/contentoh/logo.png";
+import contentohTeam from "../assets/contentoh/team.jpeg";
+import contentohLogin from "../assets/contentoh/login.jpeg";
+import contentohMe from "../assets/contentoh/me.jpeg";
+
 export type HeroData = {
   name: string;
   role: string;
@@ -64,6 +69,7 @@ export type ExperienciaEntry = {
   endDate: string;
   location: string;
   highlights: string[];
+  images?: string[];
 };
 
 export type ExperienciaData = {
@@ -150,6 +156,7 @@ export const experiencia: ExperienciaData = {
         "Módulos de extremo a extremo sobre AWS (Lambda, S3, RDS) y React",
         "Reduje 40% los tiempos de contenido y 60% los errores con IA generativa",
       ],
+      images: [contentohLogo, contentohTeam, contentohLogin, contentohMe],
     },
     {
       company: "Centro de Desarrollo Tecnológico (CEDETEC), FES Acatlán - UNAM",

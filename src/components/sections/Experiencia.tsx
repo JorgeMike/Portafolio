@@ -208,6 +208,7 @@ function ImageNode({
   target: LayoutTarget;
 }) {
   const initials = initialsOf(entry);
+  const imageSrc = entry.images?.[slot];
 
   const [dipping, setDipping] = useState(false);
   const isFirstRender = useRef(true);
@@ -222,7 +223,13 @@ function ImageNode({
     return () => clearTimeout(timeout);
   }, [isActive]);
 
-  const targetOpacity = hidden ? 0 : isActive ? 0.55 + slot * 0.1 : 0.6;
+  const targetOpacity = hidden
+    ? 0
+    : isActive
+      ? imageSrc
+        ? 1
+        : 0.55 + slot * 0.1
+      : 0.6;
   const targetColor = isActive ? "var(--color-surface)" : "var(--color-term-green)";
   const springTransition = { type: "spring", stiffness: 90, damping: 18, mass: 1 } as const;
 
@@ -253,15 +260,29 @@ function ImageNode({
       className="absolute left-0 top-0 flex items-center justify-center overflow-hidden border border-border"
     >
       {isActive && (
-        <motion.span
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2, delay: 0.15 }}
-          className="font-mono text-xs text-term-green-dim md:text-sm"
+          className="flex h-full w-full items-center justify-center"
         >
-          {initials}
-        </motion.span>
+          {imageSrc ? (
+            <img
+              src={imageSrc}
+              alt={`${entry.companyShort} · evidencia ${slot + 1}`}
+              className={
+                slot === 0
+                  ? "h-full w-full object-contain p-3"
+                  : "h-full w-full object-cover"
+              }
+            />
+          ) : (
+            <span className="font-mono text-xs text-term-green-dim md:text-sm">
+              {initials}
+            </span>
+          )}
+        </motion.div>
       )}
     </motion.div>
   );
