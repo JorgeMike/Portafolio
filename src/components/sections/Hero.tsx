@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { hero } from '../../data/hero'
 import { useTypewriter } from '../../lib/useTypewriter'
+import { useMouseParallax } from '../../lib/useMouseParallax'
 import heroImage from '../../assets/hero.png'
 import Reveal from '../terminal/Reveal'
 import Cursor from '../terminal/Cursor'
@@ -13,6 +14,8 @@ function Hero() {
   const [showIdentity, setShowIdentity] = useState(false)
   const [showCtasLine, setShowCtasLine] = useState(false)
   const [showImageLine, setShowImageLine] = useState(false)
+
+  const { ref: parallaxRef, offset } = useMouseParallax<HTMLDivElement>(6)
 
   const whoami = useTypewriter(hero.whoamiCommand, {
     speed: 90,
@@ -36,8 +39,18 @@ function Hero() {
       id="hero"
       className="flex min-h-screen items-center justify-center px-6 py-24"
     >
-      <div className="grid w-full max-w-5xl gap-10 md:grid-cols-[1.3fr_1fr] md:items-start">
-        <div className="rounded-md border border-border bg-surface font-mono shadow-2xl">
+      <div
+        ref={parallaxRef}
+        className="grid w-full max-w-5xl gap-10 md:grid-cols-[1.3fr_1fr] md:items-start"
+        style={{ perspective: '1600px' }}
+      >
+        <div
+          className="rounded-md border border-border bg-surface font-mono shadow-2xl transition-transform duration-300 ease-out will-change-transform"
+          style={{
+            transform: `rotateY(${8 + offset.x}deg) rotateX(${-offset.y}deg)`,
+            transformStyle: 'preserve-3d',
+          }}
+        >
           <div className="flex items-center gap-2 border-b border-border px-4 py-2.5">
             <span className="h-3 w-3 rounded-full bg-[#ff5f56]" />
             <span className="h-3 w-3 rounded-full bg-[#ffbd2e]" />
@@ -90,7 +103,13 @@ function Hero() {
           </div>
         </div>
 
-        <div className="rounded-md border border-border bg-surface font-mono shadow-2xl">
+        <div
+          className="rounded-md border border-border bg-surface font-mono shadow-2xl transition-transform duration-300 ease-out will-change-transform"
+          style={{
+            transform: `rotateY(${-8 + offset.x}deg) rotateX(${-offset.y}deg)`,
+            transformStyle: 'preserve-3d',
+          }}
+        >
           <div className="flex items-center gap-2 border-b border-border px-4 py-2.5">
             <span className="h-3 w-3 rounded-full bg-[#ff5f56]" />
             <span className="h-3 w-3 rounded-full bg-[#ffbd2e]" />
