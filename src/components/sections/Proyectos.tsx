@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { motion } from "motion/react";
 import { proyectos, type ProyectoEntry } from "../../data/cv";
 import { useTypewriter } from "../../lib/useTypewriter";
 import { useInView } from "../../lib/useInView";
 import Reveal from "../terminal/Reveal";
 import Cursor from "../terminal/Cursor";
+import Lightbox from "../terminal/Lightbox";
 
 function hashSeed(n: number) {
   let x = n;
@@ -62,9 +64,11 @@ function ProyectoCard({ entry }: { entry: ProyectoEntry }) {
 function FeaturedProyectoCard({
   entry,
   seed,
+  onImageClick,
 }: {
   entry: ProyectoEntry;
   seed: number;
+  onImageClick: (images: string[], startIndex: number, entryName: string) => void;
 }) {
   const images = entry.images ?? [];
 
@@ -102,18 +106,29 @@ function FeaturedProyectoCard({
             const jitter = jitterFor(seed, index);
             const isWide = index === 0 && images.length % 2 === 1;
 
+            const alt = `${entry.name} · imagen ${index + 1}`;
+            const layoutId = `proyecto-img-${src}`;
+
             return (
-              <img
+              <button
                 key={src}
-                src={src}
-                alt={`${entry.name} · imagen ${index + 1}`}
-                className={`rounded border border-border object-cover shadow-lg shadow-black/40 ${
+                type="button"
+                onClick={() => onImageClick(images, index, entry.name)}
+                aria-label={`Ampliar ${alt}`}
+                className={`cursor-zoom-in overflow-hidden rounded border border-border p-0 shadow-lg shadow-black/40 transition-transform hover:scale-[1.03] ${
                   isWide ? "col-span-2 h-32 md:h-40" : "h-24 md:h-32"
                 } w-full`}
                 style={{
                   transform: `rotate(${jitter.rotate * 2.5}deg) translateY(${jitter.offsetY * 6}px)`,
                 }}
-              />
+              >
+                <motion.img
+                  layoutId={layoutId}
+                  src={src}
+                  alt={alt}
+                  className="h-full w-full object-cover"
+                />
+              </button>
             );
           })}
         </div>
@@ -125,6 +140,11 @@ function FeaturedProyectoCard({
 function Proyectos() {
   const { ref, inView } = useInView<HTMLElement>();
   const [showContent, setShowContent] = useState(false);
+  const [lightbox, setLightbox] = useState<{
+    images: string[];
+    entryName: string;
+    index: number;
+  } | null>(null);
 
   const command = useTypewriter(proyectos.command, {
     start: inView,
@@ -155,7 +175,14 @@ function Proyectos() {
           {featured.length > 0 && (
             <div className="mt-10 flex flex-col gap-6">
               {featured.map((entry, index) => (
-                <FeaturedProyectoCard key={entry.name} entry={entry} seed={index + 1} />
+                <FeaturedProyectoCard
+                  key={entry.name}
+                  entry={entry}
+                  seed={index + 1}
+                  onImageClick={(images, startIndex, entryName) =>
+                    setLightbox({ images, index: startIndex, entryName })
+                  }
+                />
               ))}
             </div>
           )}
@@ -167,6 +194,21 @@ function Proyectos() {
           </div>
         </Reveal>
       )}
+
+      <Lightbox
+        images={
+          lightbox?.images.map((src, i) => ({
+            src,
+            alt: `${lightbox.entryName} · imagen ${i + 1}`,
+            layoutId: i === lightbox.index ? `proyecto-img-${src}` : undefined,
+          })) ?? []
+        }
+        index={lightbox?.index ?? 0}
+        onIndexChange={(index) =>
+          setLightbox((current) => (current ? { ...current, index } : current))
+        }
+        onClose={() => setLightbox(null)}
+      />
     </section>
   );
 }

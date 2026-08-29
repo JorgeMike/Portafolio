@@ -6,6 +6,7 @@ import { useInView } from "../../lib/useInView";
 import { useTypewriter } from "../../lib/useTypewriter";
 import Cursor from "../terminal/Cursor";
 import FloatingPixels from "../terminal/FloatingPixels";
+import Lightbox from "../terminal/Lightbox";
 
 const MONTHS = [
   "Ene",
@@ -216,12 +217,14 @@ function ImageNode({
   isActive,
   hidden,
   target,
+  onImageClick,
 }: {
   entry: ExperienciaEntry;
   slot: number;
   isActive: boolean;
   hidden: boolean;
   target: LayoutTarget;
+  onImageClick: (slot: number) => void;
 }) {
   const initials = initialsOf(entry);
   const imageSrc = entry.images?.[slot];
@@ -286,15 +289,23 @@ function ImageNode({
           className="flex h-full w-full items-center justify-center"
         >
           {imageSrc ? (
-            <img
-              src={imageSrc}
-              alt={`${entry.companyShort} · evidencia ${slot + 1}`}
-              className={
-                slot === 0
-                  ? "h-full w-full object-contain p-3"
-                  : "h-full w-full object-cover"
-              }
-            />
+            <button
+              type="button"
+              onClick={() => onImageClick(slot)}
+              aria-label={`Ampliar evidencia ${slot + 1} de ${entry.companyShort}`}
+              className="h-full w-full cursor-zoom-in"
+            >
+              <motion.img
+                layoutId={`experiencia-img-${entryId(entry)}-${slot}`}
+                src={imageSrc}
+                alt={`${entry.companyShort} · evidencia ${slot + 1}`}
+                className={
+                  slot === 0
+                    ? "h-full w-full object-contain p-3"
+                    : "h-full w-full object-cover"
+                }
+              />
+            </button>
           ) : (
             <span className="font-mono text-xs text-term-green-dim md:text-sm">
               {initials}
@@ -419,6 +430,10 @@ function Experiencia() {
   });
 
   const [activeIndex, setActiveIndex] = useState(0);
+  const [lightbox, setLightbox] = useState<{
+    entryKey: string;
+    index: number;
+  } | null>(null);
 
   const { scrollYProgress } = useScroll({
     target: sectionInViewRef,
@@ -444,6 +459,13 @@ function Experiencia() {
       bottom: viewport.height - zoneMargin,
     },
   };
+
+  const lightboxEntry = lightbox
+    ? entries.find((entry) => entryId(entry) === lightbox.entryKey)
+    : undefined;
+  const lightboxImages = lightboxEntry
+    ? (lightboxEntry.images ?? []).filter((src): src is string => Boolean(src))
+    : [];
 
   return (
     <section
@@ -514,12 +536,38 @@ function Experiencia() {
                         ? imageActiveTarget(target, slot, index)
                         : imageRestTarget(target, slot, index)
                     }
+                    onImageClick={(clickedSlot) => {
+                      const entryImages = entry.images ?? [];
+                      const galleryIndex = entryImages
+                        .slice(0, clickedSlot + 1)
+                        .filter(Boolean).length - 1;
+                      setLightbox({
+                        entryKey: entryId(entry),
+                        index: galleryIndex,
+                      });
+                    }}
                   />
                 ))}
               </Fragment>
             );
           })}
       </div>
+
+      <Lightbox
+        images={lightboxImages.map((src, i) => ({
+          src,
+          alt: `${lightboxEntry?.companyShort} · evidencia ${i + 1}`,
+          layoutId:
+            lightbox && i === lightbox.index
+              ? `experiencia-img-${lightbox.entryKey}-${lightboxEntry!.images!.indexOf(src)}`
+              : undefined,
+        }))}
+        index={lightbox?.index ?? 0}
+        onIndexChange={(index) =>
+          setLightbox((current) => (current ? { ...current, index } : current))
+        }
+        onClose={() => setLightbox(null)}
+      />
     </section>
   );
 }
