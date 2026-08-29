@@ -39,6 +39,15 @@ import contentohLogo from "../assets/contentoh/logo.png";
 import contentohTeam from "../assets/contentoh/team.jpeg";
 import contentohLogin from "../assets/contentoh/login.jpeg";
 import contentohMe from "../assets/contentoh/me.jpeg";
+import kachiScreenshot1 from "../assets/kachi/screenshot1.png";
+import kachiScreenshot2 from "../assets/kachi/screenshot2.png";
+import kachiScreenshot3 from "../assets/kachi/screenshot3.png";
+import kachiTeam from "../assets/kachi/team.jpeg";
+import encuestasLanding from "../assets/encuestas/landing.png";
+import encuestasLogin from "../assets/encuestas/login.png";
+import encuestasEncuesta from "../assets/encuestas/encuesta.png";
+import encuestasMonitoreo from "../assets/encuestas/monitoreo.png";
+import encuestasStats from "../assets/encuestas/stats.png";
 
 export type HeroData = {
   name: string;
@@ -82,6 +91,8 @@ export type ProyectoEntry = {
   date: string;
   url?: string;
   highlights: string[];
+  images?: string[];
+  featured?: boolean;
 };
 
 export type ProyectosData = {
@@ -225,6 +236,14 @@ export const proyectos: ProyectosData = {
         "Revisión de respuestas en tiempo real por grupo, materia y carrera",
         "Reportes agregados e individuales a nivel profesor, grupo, materia y carrera",
       ],
+      images: [
+        encuestasLanding,
+        encuestasLogin,
+        encuestasEncuesta,
+        encuestasMonitoreo,
+        encuestasStats,
+      ],
+      featured: true,
     },
     {
       name: "Sistema de Censo de Activos",
@@ -264,6 +283,16 @@ export const proyectos: ProyectosData = {
       highlights: [
         "Sitio informativo estático del Programa de Apoyo a la Investigación",
       ],
+    },
+    {
+      name: "Kachi — App de traducción español-náhuatl",
+      date: "2024",
+      highlights: [
+        "Desarrollé la API con FastAPI que sirve un modelo de traducción náhuatl-español",
+        "Segundo lugar en Changemakers Social Challenge (Enactus México)",
+      ],
+      images: [kachiScreenshot1, kachiScreenshot2, kachiScreenshot3, kachiTeam],
+      featured: true,
     },
     {
       name: "Chatbot de IA con NLP — misProfesores.com",
